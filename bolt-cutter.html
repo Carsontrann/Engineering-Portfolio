@@ -32,19 +32,6 @@
       color: #0077cc;
     }
 
-    .image-placeholder {
-      width: 100%;
-      height: 250px;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      margin: 15px 0;
-      border-radius: 8px;
-      font-style: italic;
-    }
-
     .section {
       margin-bottom: 30px;
     }
@@ -53,12 +40,21 @@
       background: #f9f9f9;
       padding: 15px;
       border-radius: 8px;
+      margin-top: 10px;
     }
 
     img {
-      width: 100%;
-      margin-top: 15px;
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
       border-radius: 8px;
+    }
+
+    .caption {
+      text-align: center;
+      color: gray;
+      font-size: 14px;
+      margin-top: -10px;
     }
 
   </style>
@@ -74,91 +70,80 @@
   <h1>Bolt Cutter Mechanical Analysis</h1>
   <p><b>Mechanical Engineering Project | SolidWorks + Static Analysis</b></p>
 
+  <!-- ABSTRACT -->
   <div class="section">
-
     <h2>Abstract</h2>
     <div class="box">
-      This lab focused on analyzing the mechanics of a bolt cutter and determining how it produces a large cutting force from a relatively small human applied input. The shear force at the blade was calculated using static equilibrium and found to be 16,696.7 N, approximately 67 times the input force of 250 N.
+      This lab analyzed the mechanics of a bolt cutter and determined how it produces a large cutting force from a small human input. Using static equilibrium, the shear force at the blade was calculated to be 16,696.7 N, approximately 67 times the input force of 250 N.
     </div>
-
   </div>
 
+  <!-- INTRO -->
   <div class="section">
-
     <h2>Introduction</h2>
     <div class="box">
-      The goal of this lab is to understand how a bolt cutter amplifies human force using mechanical advantage. Bolt cutters use long handles and lever systems to multiply input force, allowing users to cut through strong materials.
+      The bolt cutter demonstrates mechanical advantage by amplifying human input force through a lever system. Long handles and pivot joints allow a small force to generate a much larger cutting force at the jaws.
     </div>
-
   </div>
 
+  <!-- HOW IT WORKS -->
   <div class="section">
-
     <h2>How It Works</h2>
 
     <div class="box">
-      A bolt cutter uses long handles, pivot joints, and cutting jaws to amplify force. When force is applied at the handles, torque is created about the pivot, which is transferred and amplified through linkages to the cutting jaws.
+      A bolt cutter uses long handles, pivot joints, and cutting jaws to amplify force. When force is applied at the handles, torque is created about the pivot and transmitted through linkages to the cutting jaws.
     </div>
 
-    <div class="image-placeholder">
-      Insert SolidWorks Assembly Image Here
-    </div>
+    <img src="bolt-cutter-solidworks.png" alt="SolidWorks Model">
+    <div class="caption">SolidWorks Assembly Model of Bolt Cutter</div>
 
-    <div class="image-placeholder">
-      Insert Annotated Force Diagram Here
+    <div class="box">
+      This mechanical system converts human force into a highly amplified cutting force through lever-based mechanical advantage.
     </div>
-
   </div>
 
+  <!-- STATIC ANALYSIS -->
   <div class="section">
-
     <h2>Static Analysis</h2>
 
     <div class="box">
       <p><b>Objective:</b> Determine shear force at blade using 250 N input force.</p>
-
       <p><b>Key Result:</b> Shear force = <b>16,696.7 N</b></p>
-
       <p><b>Mechanical Advantage:</b> ~67x amplification of input force</p>
     </div>
 
-    <img src="bolt-cutter-solidworks.png" alt="SolidWorks Model">
-
-    <p style="text-align:center; color:gray;">
-      SolidWorks Assembly Model of Bolt Cutter
-    </p>
-
-    <div class="image-placeholder">
-      Insert Hand Calculations / Free Body Diagram Here
+    <div class="box">
+      Free body diagrams and equilibrium equations were used to determine force transmission through the system.
     </div>
 
+    <img src="bolt-cutter-solidworks.png" alt="Model Reference Again">
+    <div class="caption">SolidWorks Model Used for Geometric Reference</div>
   </div>
 
+  <!-- 3D MODEL -->
   <div class="section">
-
     <h2>3D Model</h2>
 
-    <div class="image-placeholder">
-      Insert SolidWorks Render Here
+    <div class="box">
+      SolidWorks model used for analysis and geometry extraction.
     </div>
 
-    <p>
-      Download full drawings:<br>
+    <img src="bolt-cutter-solidworks.png" alt="3D Model">
+
+    <p style="text-align:center;">
       <a href="https://drive.google.com/drive/folders/1TV8mEaSxUroBahL1ydKuqSGBeMGI0YWh?usp=sharing" target="_blank">
-        Google Drive Link
+        Download Full Drawings (Google Drive)
       </a>
     </p>
-
   </div>
 
+  <!-- CONCLUSION -->
   <div class="section">
-
     <h2>Conclusion</h2>
 
     <div class="box">
-      This lab demonstrated how a relatively small human input force can be amplified into a very large cutting force due to mechanical advantage. The bolt cutter system successfully converts 250 N input force into 16,696.7 N at the blade, showing the effectiveness of lever-based mechanical design.
+      This project demonstrated how a simple mechanical system can significantly amplify human force. The bolt cutter achieved a mechanical advantage of approximately 67x, converting 250 N input force into 16,696.7 N at the cutting blade.
     </div>
-
   </div>
 
 </div>
