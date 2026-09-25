@@ -109,7 +109,7 @@
     }
 
 
-    /* MAIN CONTENT */
+    /* MAIN */
 
     main {
       max-width: 1050px;
@@ -118,7 +118,7 @@
     }
 
     section {
-      margin-bottom: 70px;
+      margin-bottom: 75px;
     }
 
     .section-title {
@@ -192,19 +192,18 @@
 
     .result-sub {
       color: #94a3b8;
-      margin-top: 6px;
       font-size: 13px;
+      margin-top: 6px;
     }
 
 
-    /* GENERAL CARDS */
+    /* CARDS */
 
     .card {
       background: white;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
       padding: 28px;
-      margin-top: 20px;
     }
 
     .card h3 {
@@ -217,80 +216,42 @@
     }
 
 
-    /* TWO COLUMN */
+    /* REAL VS CAD */
 
-    .two-column {
+    .comparison-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
-    }
-
-
-    /* HOW IT WORKS */
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
       margin-top: 30px;
     }
 
-    .process-step {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 22px;
-    }
-
-    .step-number {
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 7px;
-    }
-
-    .process-step h3 {
-      font-size: 17px;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    .process-step p {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-
-    /* COMPONENTS */
-
-    .components-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 25px;
-    }
-
-    .component-card {
+    .comparison-card {
       background: white;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 24px;
+      padding: 22px;
     }
 
-    .component-card h3 {
+    .comparison-card h3 {
+      text-align: center;
       color: #0f172a;
-      margin-bottom: 8px;
+      margin-bottom: 15px;
     }
 
-    .component-card p {
+    .comparison-card img {
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: contain;
+      margin: auto;
+      border-radius: 8px;
+    }
+
+    .caption {
       color: #64748b;
-    }
-
-    .component-detail {
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 7px;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 12px;
     }
 
 
@@ -310,10 +271,17 @@
       padding: 20px;
     }
 
+    .step-number {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
     .workflow-step h3 {
+      font-size: 17px;
       color: #0f172a;
       margin-bottom: 7px;
-      font-size: 17px;
     }
 
     .workflow-step p {
@@ -322,9 +290,9 @@
     }
 
 
-    /* ICE TRIAL */
+    /* SPECIAL RESULT */
 
-    .ice-box {
+    .highlight-box {
       background: #eff6ff;
       border: 1px solid #bfdbfe;
       border-radius: 12px;
@@ -332,12 +300,12 @@
       margin-top: 25px;
     }
 
-    .ice-box h3 {
+    .highlight-box h3 {
       color: #1e3a8a;
       margin-bottom: 10px;
     }
 
-    .ice-box p {
+    .highlight-box p {
       color: #475569;
     }
 
@@ -366,7 +334,7 @@
     }
 
 
-    /* EQUATION RESULT */
+    /* ANALYSIS RESULT */
 
     .analysis-box {
       background: #0f172a;
@@ -393,33 +361,13 @@
     }
 
 
-    /* CONTRIBUTION */
-
-    .contribution {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-left: 5px solid #2563eb;
-      border-radius: 12px;
-      padding: 28px;
-    }
-
-    .contribution h3 {
-      color: #0f172a;
-      margin-bottom: 12px;
-    }
-
-    .contribution p {
-      color: #475569;
-    }
-
-
-    /* BUTTON */
+    /* BUTTONS */
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 25px;
     }
 
     .button {
@@ -447,6 +395,21 @@
     }
 
 
+    /* SUMMARY */
+
+    .summary-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .summary-box p {
+      color: #475569;
+    }
+
+
     /* FOOTER */
 
     footer {
@@ -465,13 +428,16 @@
         font-size: 38px;
       }
 
+      .project-info,
       .results-grid,
-      .two-column,
-      .process-grid,
-      .components-grid,
-      .workflow,
-      .project-info {
+      .comparison-grid,
+      .workflow {
         grid-template-columns: 1fr;
+      }
+
+      .comparison-card img {
+        height: auto;
+        max-height: 450px;
       }
 
       main {
@@ -510,18 +476,17 @@
   <div class="hero-content">
 
     <div class="eyebrow">
-      THERMODYNAMICS • EXPERIMENTAL ANALYSIS • MECHANICAL DISSECTION
+      THERMODYNAMICS • EXPERIMENTAL TESTING • DATA ANALYSIS
     </div>
 
     <h1>
-      Low-Temperature Stirling Engine Analysis
+      Stirling Engine Performance Analysis
     </h1>
 
     <p class="hero-description">
-      Mechanical dissection and experimental analysis of a Sunnytech LT001
-      Low Temperature Differential Stirling Engine to investigate how thermal
-      energy is converted into mechanical motion and how flywheel speed changes
-      with temperature difference.
+      Experimental evaluation of a Sunnytech LT001 Low Temperature
+      Differential Stirling Engine to quantify the relationship between
+      temperature difference and flywheel speed.
     </p>
 
     <div class="tags">
@@ -529,8 +494,8 @@
       <span class="tag">Thermodynamics</span>
       <span class="tag">Experimental Design</span>
       <span class="tag">Data Analysis</span>
-      <span class="tag">Mechanical Dissection</span>
-      <span class="tag">Heat Engines</span>
+      <span class="tag">SolidWorks</span>
+      <span class="tag">Mechanical Systems</span>
 
     </div>
 
@@ -539,7 +504,7 @@
 </div>
 
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 
 <main>
 
@@ -553,11 +518,10 @@
   </h2>
 
   <p class="section-intro">
-    This project investigated the mechanical design and thermal behavior
-    of a Low Temperature Differential Stirling engine. The engine was
-    disassembled to examine its internal components, reassembled and tested,
-    and experimentally evaluated to determine how temperature difference
-    affects flywheel rotational speed.
+    This project explored the performance of a real Low Temperature
+    Differential Stirling engine through physical testing, temperature
+    measurement, rotational-speed measurement, data analysis, and
+    3D CAD documentation.
   </p>
 
 
@@ -567,11 +531,11 @@
     <div class="info-item">
 
       <div class="info-label">
-        Project Type
+        Physical System
       </div>
 
       <div class="info-value">
-        Experimental Mechanical Analysis
+        Sunnytech LT001 LTD Stirling Engine
       </div>
 
     </div>
@@ -580,11 +544,11 @@
     <div class="info-item">
 
       <div class="info-label">
-        Primary Contribution
+        Project Focus
       </div>
 
       <div class="info-value">
-        Experiment Design & Data Analysis
+        Performance Testing & Analysis
       </div>
 
     </div>
@@ -593,11 +557,76 @@
     <div class="info-item">
 
       <div class="info-label">
-        System
+        Tools
       </div>
 
       <div class="info-value">
-        Sunnytech LT001 Stirling Engine
+        Experimental Testing + SolidWorks
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- REAL ENGINE VS CAD MODEL -->
+
+<section>
+
+  <h2 class="section-title">
+    Physical Engine & CAD Model
+  </h2>
+
+  <p class="section-intro">
+    The project connected a real mechanical system with digital engineering
+    documentation. The physical Sunnytech LT001 was used for testing and
+    measurement, while a complete SolidWorks assembly captured the engine's
+    geometry and component relationships.
+  </p>
+
+
+  <div class="comparison-grid">
+
+
+    <!-- REAL ENGINE -->
+
+    <div class="comparison-card">
+
+      <h3>
+        Physical Engine
+      </h3>
+
+      <img
+        src="SE_real.png"
+        alt="Sunnytech LT001 Low Temperature Differential Stirling Engine"
+      >
+
+      <div class="caption">
+        Sunnytech LT001 Low Temperature Differential Stirling Engine
+        used for experimental testing.
+      </div>
+
+    </div>
+
+
+    <!-- CAD MODEL -->
+
+    <div class="comparison-card">
+
+      <h3>
+        SolidWorks Model
+      </h3>
+
+      <img
+        src="SE_model.png"
+        alt="SolidWorks model of the Sunnytech LT001 Stirling Engine"
+      >
+
+      <div class="caption">
+        Complete SolidWorks assembly representing the physical engine.
       </div>
 
     </div>
@@ -617,9 +646,8 @@
   </h2>
 
   <p class="section-intro">
-    Experimental testing showed a strong relationship between the
-    temperature difference across the engine and the rotational speed
-    of the flywheel.
+    Testing showed a strong relationship between the thermal gradient
+    across the engine and the resulting flywheel speed.
   </p>
 
 
@@ -633,11 +661,11 @@
       </div>
 
       <div class="result-label">
-        Minimum Startup ΔT
+        Estimated Startup ΔT
       </div>
 
       <div class="result-sub">
-        Calculated from the regression model
+        Derived from the regression model
       </div>
 
     </div>
@@ -667,11 +695,11 @@
       </div>
 
       <div class="result-label">
-        Ice Trial
+        Reverse Rotation
       </div>
 
       <div class="result-sub">
-        Reverse rotation at ΔT = -21.5°C
+        At ΔT = -21.5°C
       </div>
 
     </div>
@@ -682,288 +710,19 @@
 </section>
 
 
-<!-- HOW IT WORKS -->
+<!-- EXPERIMENTAL APPROACH -->
 
 <section>
 
   <h2 class="section-title">
-    How the Stirling Engine Works
+    Experimental Approach
   </h2>
 
   <p class="section-intro">
-    The engine converts heat into mechanical motion by repeatedly heating
-    and cooling the trapped air inside the engine.
-  </p>
-
-
-  <div class="process-grid">
-
-
-    <div class="process-step">
-
-      <div class="step-number">
-        STEP 01
-      </div>
-
-      <h3>
-        Heat
-      </h3>
-
-      <p>
-        A temperature difference is created between the bottom hot plate
-        and the cooler top plate.
-      </p>
-
-    </div>
-
-
-    <div class="process-step">
-
-      <div class="step-number">
-        STEP 02
-      </div>
-
-      <h3>
-        Expand
-      </h3>
-
-      <p>
-        The displacer moves air toward the hot side, causing the trapped
-        air to heat and expand.
-      </p>
-
-    </div>
-
-
-    <div class="process-step">
-
-      <div class="step-number">
-        STEP 03
-      </div>
-
-      <h3>
-        Produce Motion
-      </h3>
-
-      <p>
-        The expanding air pushes the piston, which drives the crankshaft
-        and rotates the flywheel.
-      </p>
-
-    </div>
-
-
-    <div class="process-step">
-
-      <div class="step-number">
-        STEP 04
-      </div>
-
-      <h3>
-        Cool & Repeat
-      </h3>
-
-      <p>
-        The displacer moves the air toward the cool side, where it contracts,
-        allowing the cycle to repeat continuously.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- THERMODYNAMIC PRINCIPLES -->
-
-<section>
-
-  <h2 class="section-title">
-    Engineering Principles
-  </h2>
-
-
-  <div class="two-column">
-
-
-    <div class="card">
-
-      <h3>
-        First Law of Thermodynamics
-      </h3>
-
-      <p>
-        The engine converts heat input into mechanical work. Because
-        the engine operates cyclically, the working gas returns to its
-        initial state after each complete cycle.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Temperature Difference
-      </h3>
-
-      <p>
-        A thermal gradient is required for operation. Heat naturally
-        transfers from the hotter region toward the colder region,
-        allowing the engine to produce useful mechanical motion.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Ideal Gas Behavior
-      </h3>
-
-      <p>
-        The air inside the engine expands when heated and contracts
-        when cooled. These pressure and volume changes drive the piston.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Flywheel Momentum
-      </h3>
-
-      <p>
-        The flywheel stores rotational energy and helps maintain
-        smooth continuous motion as the engine moves through each
-        stage of its thermodynamic cycle.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- MECHANICAL DISSECTION -->
-
-<section>
-
-  <h2 class="section-title">
-    Mechanical Dissection
-  </h2>
-
-  <p class="section-intro">
-    The engine was carefully disassembled to identify the major components,
-    understand their functions, and examine how the thermal and mechanical
-    subsystems interact.
-  </p>
-
-
-  <div class="components-grid">
-
-
-    <div class="component-card">
-
-      <div class="component-detail">
-        PISTON ASSEMBLY
-      </div>
-
-      <h3>
-        Piston & Connecting Rod
-      </h3>
-
-      <p>
-        The glass piston responds to pressure changes in the working air.
-        Its linear motion is transferred through the connecting rod
-        to the crankshaft.
-      </p>
-
-    </div>
-
-
-    <div class="component-card">
-
-      <div class="component-detail">
-        ROTATING ASSEMBLY
-      </div>
-
-      <h3>
-        Crankshaft & Flywheel
-      </h3>
-
-      <p>
-        The crankshaft converts the piston's linear movement into
-        rotational motion while the flywheel stores rotational energy
-        and helps maintain smooth operation.
-      </p>
-
-    </div>
-
-
-    <div class="component-card">
-
-      <div class="component-detail">
-        THERMAL SYSTEM
-      </div>
-
-      <h3>
-        Top & Bottom Plates
-      </h3>
-
-      <p>
-        The bottom plate acts as the hot interface while the upper
-        assembly serves as the cooler side of the engine, creating
-        the thermal gradient required for operation.
-      </p>
-
-    </div>
-
-
-    <div class="component-card">
-
-      <div class="component-detail">
-        AIR TRANSFER
-      </div>
-
-      <h3>
-        Displacer & Cylinder
-      </h3>
-
-      <p>
-        The displacer moves the working air between the hot and cold
-        regions. The transparent cylinder encloses the working volume
-        while allowing the internal mechanism to remain visible.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- EXPERIMENT -->
-
-<section>
-
-  <h2 class="section-title">
-    Experiment Design
-  </h2>
-
-  <p class="section-intro">
-    I designed an experiment to determine the relationship between
-    flywheel RPM and the temperature difference across the engine.
-    Room temperature was held at approximately 22°C while the bottom
-    plate temperature was varied using hot water.
+    The experiment was designed to measure how flywheel speed changes
+    as the temperature difference across the engine increases.
+    Room temperature was maintained near 22°C while the lower plate
+    temperature was varied using water at different temperatures.
   </p>
 
 
@@ -977,12 +736,12 @@
       </div>
 
       <h3>
-        Control Temperature
+        Establish Baseline
       </h3>
 
       <p>
-        Room temperature was maintained at approximately 22°C to keep
-        the upper plate near a consistent cold-reservoir temperature.
+        Maintained room temperature near 22°C to create a consistent
+        reference temperature for the upper plate.
       </p>
 
     </div>
@@ -995,12 +754,12 @@
       </div>
 
       <h3>
-        Heat Engine
+        Apply Thermal Input
       </h3>
 
       <p>
-        The engine was placed over hot water and allowed approximately
-        three minutes for the bottom plate to heat.
+        Placed the engine over water at different temperatures and
+        allowed the lower plate to reach operating temperature.
       </p>
 
     </div>
@@ -1013,12 +772,12 @@
       </div>
 
       <h3>
-        Measure
+        Measure RPM
       </h3>
 
       <p>
-        Water temperature was measured and flywheel rotations were
-        counted over a 10-second interval.
+        Recorded flywheel rotations over a 10-second period and
+        repeated each condition for multiple trials.
       </p>
 
     </div>
@@ -1031,12 +790,12 @@
       </div>
 
       <h3>
-        Repeat & Analyze
+        Analyze Data
       </h3>
 
       <p>
-        Three trials were performed at each condition and the process
-        was repeated across several temperature differences.
+        Compared rotational speed with temperature difference and
+        generated a linear regression model.
       </p>
 
     </div>
@@ -1045,18 +804,17 @@
   </div>
 
 
-  <div class="ice-box">
+  <div class="highlight-box">
 
     <h3>
-      Ice Trial
+      Reverse-Temperature Test
     </h3>
 
     <p>
-      An additional trial placed the engine over an ice block instead
-      of hot water. This reversed the thermal gradient so the bottom
-      plate became colder than the top plate. The flywheel responded
-      by rotating in the opposite direction, producing a measured
-      speed of -70 RPM at a ΔT of -21.5°C.
+      An additional test placed the engine over an ice block, reversing
+      the thermal gradient. The flywheel rotated in the opposite direction
+      and reached approximately -70 RPM at a temperature difference of
+      -21.5°C.
     </p>
 
   </div>
@@ -1064,18 +822,17 @@
 </section>
 
 
-<!-- DATA ANALYSIS -->
+<!-- PERFORMANCE DATA -->
 
 <section>
 
   <h2 class="section-title">
-    RPM vs. Temperature Difference
+    Performance Data
   </h2>
 
   <p class="section-intro">
-    The experimental results showed a strong approximately linear
-    relationship between temperature difference and flywheel speed.
-    Greater temperature differences produced higher rotational speeds.
+    The measured results showed an approximately linear increase in
+    flywheel RPM as the temperature difference increased.
   </p>
 
 
@@ -1085,11 +842,11 @@
       id="rpmChart"
       viewBox="0 0 760 420"
       role="img"
-      aria-label="Graph of flywheel RPM versus temperature difference"
+      aria-label="Graph showing flywheel RPM versus temperature difference"
     ></svg>
 
     <div class="chart-caption">
-      Experimental RPM measurements compared with the linear regression model.
+      Flywheel RPM versus temperature difference across the Stirling engine.
     </div>
 
   </div>
@@ -1098,11 +855,11 @@
   <div class="analysis-box">
 
     <h3>
-      Linear Regression
+      Regression Model
     </h3>
 
     <p>
-      The measured data produced the relationship:
+      The experimental data produced the relationship:
     </p>
 
     <div class="equation">
@@ -1119,8 +876,8 @@
     </div>
 
     <p>
-      This means the engine required only a small thermal gradient
-      before the flywheel began rotating.
+      The results show that the engine can begin operating with
+      a relatively small thermal gradient.
     </p>
 
   </div>
@@ -1128,69 +885,24 @@
 </section>
 
 
-<!-- PERSONAL CONTRIBUTION -->
+<!-- CAD FILES -->
 
 <section>
 
   <h2 class="section-title">
-    My Contribution
-  </h2>
-
-
-  <div class="contribution">
-
-    <h3>
-      Experimental Design & Analysis
-    </h3>
-
-    <p>
-      My primary focus was designing the experimental procedure and
-      analyzing the resulting data. I developed the testing setup,
-      controlled the room-temperature condition, selected a range of
-      hot-water temperatures, measured flywheel rotation, and evaluated
-      the relationship between RPM and temperature difference.
-    </p>
-
-    <br>
-
-    <p>
-      I also introduced the ice-block trial to investigate what would
-      happen when the thermal gradient was reversed. The experiment
-      demonstrated reverse flywheel rotation and provided additional
-      insight into the engine's operating behavior.
-    </p>
-
-    <br>
-
-    <p>
-      The linear regression also allowed the minimum temperature
-      difference required for startup to be estimated, extending the
-      experiment beyond the original goal of simply measuring RPM
-      versus temperature.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- DESIGN DOCUMENTATION -->
-
-<section>
-
-  <h2 class="section-title">
-    Design Documentation
+    3D Model & Engineering Files
   </h2>
 
   <p class="section-intro">
-    The overall project also included a complete SolidWorks model of
-    the Stirling engine and detailed engineering drawings of its
-    components and assemblies. My primary contribution to the project
-    centered on experimental design and data analysis.
+    The project includes a complete 3D assembly and detailed engineering
+    drawings of the engine components. These files provide a closer look
+    at the geometry, component layout, and mechanical relationships within
+    the Sunnytech LT001.
   </p>
 
 
   <div class="button-row">
+
 
     <a
       class="button"
@@ -1198,7 +910,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      View 3D Model
+      View / Download 3D Model
     </a>
 
 
@@ -1211,169 +923,38 @@
       View Engineering Drawings
     </a>
 
-  </div>
-
-</section>
-
-
-<!-- LIMITATIONS -->
-
-<section>
-
-  <h2 class="section-title">
-    Experimental Limitations & Improvements
-  </h2>
-
-
-  <div class="two-column">
-
-
-    <div class="card">
-
-      <h3>
-        Heat Loss
-      </h3>
-
-      <p>
-        The hot-water container was not insulated, allowing heat
-        to escape during testing and potentially changing the actual
-        temperature experienced by the bottom plate.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Improved Temperature Measurement
-      </h3>
-
-      <p>
-        A future version of the experiment could use an insulated
-        container and a digital temperature probe mounted directly
-        to the engine's bottom plate for more accurate and consistent
-        measurements.
-      </p>
-
-    </div>
-
 
   </div>
 
 </section>
 
 
-<!-- ENGINEERING TAKEAWAYS -->
+<!-- PROJECT SUMMARY -->
 
 <section>
 
   <h2 class="section-title">
-    Engineering Takeaways
+    Project Summary
   </h2>
 
 
-  <div class="two-column">
-
-
-    <div class="card">
-
-      <h3>
-        Experimental Design
-      </h3>
-
-      <p>
-        Developing a testing procedure from scratch required deciding
-        which variables to control, how to collect repeatable measurements,
-        and how to evaluate the resulting data.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Thermodynamics in Practice
-      </h3>
-
-      <p>
-        The project demonstrated how a temperature difference can
-        produce pressure changes and ultimately mechanical work in
-        a functioning heat engine.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Data Analysis
-      </h3>
-
-      <p>
-        Experimental measurements revealed a strong linear relationship
-        between temperature difference and rotational speed and allowed
-        the startup temperature difference to be estimated.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Reverse Operation
-      </h3>
-
-      <p>
-        The ice trial showed that reversing the direction of the
-        temperature gradient also reverses the direction of flywheel
-        rotation.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- CONCLUSION -->
-
-<section>
-
-  <h2 class="section-title">
-    Conclusion
-  </h2>
-
-
-  <div class="card">
+  <div class="summary-box">
 
     <p>
-      The Stirling engine experiment demonstrated a clear relationship
-      between thermal gradient and mechanical output. As the temperature
-      difference increased, flywheel speed increased approximately
-      linearly.
+      This project combined experimental testing, thermodynamics,
+      mechanical systems, data analysis, and CAD documentation to evaluate
+      the performance of a real Low Temperature Differential Stirling engine.
     </p>
 
     <br>
 
     <p>
-      The measured data produced a regression of RPM = 3.26(ΔT) − 10.8,
-      corresponding to an estimated startup temperature difference of
-      approximately 3.3°C. The ice trial further demonstrated that
-      reversing the thermal gradient reverses the direction of rotation.
-    </p>
-
-    <br>
-
-    <p>
-      Overall, the project combined mechanical dissection, thermodynamic
-      principles, experimental design, testing, and data analysis to
-      investigate the operation of a real heat engine.
+      Testing showed that flywheel speed increased approximately linearly
+      with temperature difference. The experimental model predicted an
+      estimated startup temperature difference of approximately 3.3°C,
+      while the reverse-temperature test confirmed that changing the
+      direction of the thermal gradient also reverses the direction
+      of flywheel rotation.
     </p>
 
   </div>
@@ -1414,7 +995,7 @@
   const margin = {
     left: 75,
     right: 30,
-    top: 30,
+    top: 35,
     bottom: 65
   };
 
@@ -1615,7 +1196,7 @@
     title.textContent =
       "ΔT: " +
       point.dt +
-      "°C, RPM: " +
+      "°C | RPM: " +
       point.rpm;
 
     circle.appendChild(title);
@@ -1635,7 +1216,7 @@
   }, "Temperature Difference, ΔT (°C)");
 
 
-  const yLabel = add("text", {
+  add("text", {
     x: 20,
     y: margin.top + plotHeight / 2,
     "text-anchor": "middle",
@@ -1652,32 +1233,32 @@
   /* LEGEND */
 
   add("circle", {
-    cx: 525,
-    cy: 28,
+    cx: 510,
+    cy: 24,
     r: 5,
     fill: "#2563eb"
   });
 
   add("text", {
-    x: 538,
-    y: 33,
+    x: 523,
+    y: 29,
     fill: "#475569",
     "font-size": "12"
   }, "Measured Data");
 
 
   add("line", {
-    x1: 635,
-    x2: 665,
-    y1: 28,
-    y2: 28,
+    x1: 625,
+    x2: 655,
+    y1: 24,
+    y2: 24,
     stroke: "#60a5fa",
     "stroke-width": "3"
   });
 
   add("text", {
-    x: 672,
-    y: 33,
+    x: 662,
+    y: 29,
     fill: "#475569",
     "font-size": "12"
   }, "Linear Fit");
