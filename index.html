@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,6 +76,7 @@
       font-weight: bold;
       font-size: 17px;
       margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
     .hero h1 {
@@ -105,6 +107,7 @@
       padding: 12px 22px;
       border-radius: 7px;
       margin-right: 10px;
+      margin-bottom: 10px;
       font-weight: bold;
       transition: 0.2s;
     }
@@ -147,9 +150,22 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 220px 1fr 280px;
       gap: 40px;
-      align-items: start;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
     }
 
     .about-card {
@@ -161,6 +177,7 @@
 
     .about-card h3 {
       margin-bottom: 12px;
+      color: #0f172a;
     }
 
     /* EXPERIENCE */
@@ -207,7 +224,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 25px;
     }
 
@@ -223,7 +240,7 @@
 
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     }
 
     .project-top {
@@ -234,6 +251,8 @@
     .project-content {
       padding: 25px;
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card h3 {
@@ -251,9 +270,10 @@
       color: #2563eb;
       text-decoration: none;
       font-weight: bold;
+      margin-top: auto;
     }
 
-    .project-link:hover {
+    a.project-link:hover {
       text-decoration: underline;
     }
 
@@ -329,11 +349,31 @@
 
     /* MOBILE */
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-photo {
+        margin: auto;
+      }
+
+      .about-text {
+        text-align: left;
+      }
+
+      .about-card {
+        text-align: left;
+      }
+
+    }
+
+    @media (max-width: 750px) {
 
       .projects-grid,
-      .skills-grid,
-      .about-grid {
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
@@ -356,12 +396,16 @@
 
 </head>
 
+
 <body>
 
   <!-- NAVIGATION -->
 
   <nav>
-    <div class="logo">Carson Tran</div>
+
+    <div class="logo">
+      Carson Tran
+    </div>
 
     <ul>
       <li><a href="#about">About</a></li>
@@ -370,6 +414,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
   </nav>
 
 
@@ -383,7 +428,9 @@
         MECHANICAL ENGINEERING
       </div>
 
-      <h1>Carson Tran</h1>
+      <h1>
+        Carson Tran
+      </h1>
 
       <h2>
         Mechanical Engineering Student at Cal Poly Pomona
@@ -393,11 +440,15 @@
         Mechanical engineering student with experience in aerospace
         quality engineering, CAD, manufacturing, dimensional inspection,
         Arduino, and rapid prototyping. Interested in designing,
-        analyzing, and improving real-world mechanical systems.
+        analyzing, manufacturing, and improving real-world mechanical systems.
       </p>
 
       <a class="button" href="#projects">
         View Projects
+      </a>
+
+      <a class="button secondary" href="#experience">
+        View Experience
       </a>
 
       <a class="button secondary" href="#contact">
@@ -413,23 +464,40 @@
 
   <section id="about">
 
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title">
+      About Me
+    </h2>
 
     <p class="section-description">
-      I enjoy combining engineering analysis with hands-on design,
-      manufacturing, and testing.
+      Combining engineering analysis with hands-on design,
+      manufacturing, testing, and prototyping.
     </p>
+
 
     <div class="about-grid">
 
+      <!-- PROFILE PHOTO -->
+
       <div>
+
+        <img
+          src="Screenshot%202026-09-24%20235043.png"
+          alt="Carson Tran"
+          class="profile-photo"
+        >
+
+      </div>
+
+
+      <!-- ABOUT TEXT -->
+
+      <div class="about-text">
+
         <p>
           I am a Mechanical Engineering student at California State
           Polytechnic University, Pomona with an expected graduation
           date of May 2028.
         </p>
-
-        <br>
 
         <p>
           My experience includes aerospace quality engineering,
@@ -438,22 +506,35 @@
           analysis.
         </p>
 
-        <br>
+        <p>
+          I enjoy taking engineering concepts beyond the classroom
+          through hands-on projects involving CAD modeling, prototyping,
+          testing, and design iteration.
+        </p>
 
         <p>
           I am especially interested in aerospace, mechanical design,
           manufacturing, and quality engineering.
         </p>
+
       </div>
+
+
+      <!-- EDUCATION CARD -->
 
       <div class="about-card">
 
-        <h3>Education</h3>
+        <h3>
+          Education
+        </h3>
 
         <p>
-          <strong>Cal Poly Pomona</strong><br>
-          B.S. Mechanical Engineering<br>
-          GPA: 3.87<br>
+          <strong>Cal Poly Pomona</strong>
+          <br>
+          B.S. Mechanical Engineering
+          <br>
+          GPA: 3.87
+          <br>
           Expected May 2028
         </p>
 
@@ -468,17 +549,22 @@
 
   <section id="experience">
 
-    <h2 class="section-title">Engineering Experience</h2>
+    <h2 class="section-title">
+      Engineering Experience
+    </h2>
 
     <p class="section-description">
-      Professional experience in aerospace manufacturing and quality engineering.
+      Professional experience in aerospace manufacturing,
+      quality engineering, inspection, and production systems.
     </p>
+
 
     <div class="experience-card">
 
       <div class="experience-header">
 
         <div>
+
           <div class="experience-title">
             Quality Engineering Intern
           </div>
@@ -486,6 +572,7 @@
           <div class="experience-company">
             Talsco Aerospace Manufacturing
           </div>
+
         </div>
 
         <div class="experience-date">
@@ -494,30 +581,38 @@
 
       </div>
 
+
       <ul>
 
         <li>
           Supported quality assurance for aerospace components by
-          collaborating with machinists, programmers, and engineers.
+          collaborating with machinists, programmers, and engineers
+          to verify manufacturing processes, inspection requirements,
+          and engineering specifications.
         </li>
 
         <li>
           Performed dimensional inspection using calipers,
-          micrometers, height gauges, thread gauges, and CMMs.
+          micrometers, height gauges, thread gauges, and CMMs
+          to verify component and thread conformance.
         </li>
 
         <li>
-          Gained practical knowledge of Lean Six Sigma, root cause
-          analysis, CAPA, defect reduction, and continuous improvement.
+          Developed practical knowledge of quality engineering
+          principles including Lean Six Sigma, root cause analysis,
+          corrective and preventive actions, defect reduction,
+          and continuous process improvement.
         </li>
 
         <li>
-          Used Realtrac ERP and PowerPick software for production
-          tracking and VLM inventory management.
+          Used Realtrac ERP for production tracking and documentation
+          while synchronizing inventory using PowerPick software
+          and Vertical Lift Module systems.
         </li>
 
         <li>
-          Created and revised SolidWorks models and engineering drawings.
+          Created and revised SolidWorks CAD models and engineering
+          drawings to support manufacturing and design updates.
         </li>
 
       </ul>
@@ -531,11 +626,13 @@
 
   <section id="projects">
 
-    <h2 class="section-title">Engineering Projects</h2>
+    <h2 class="section-title">
+      Engineering Projects
+    </h2>
 
     <p class="section-description">
       Selected projects involving mechanical analysis, CAD,
-      experimentation, electronics, and prototyping.
+      experimentation, electronics, design, and rapid prototyping.
     </p>
 
 
@@ -550,21 +647,26 @@
 
         <div class="project-content">
 
-          <h3>Bolt Cutter Static Analysis</h3>
+          <h3>
+            Bolt Cutter Static Analysis
+          </h3>
 
           <div class="tags">
             <span class="tag">Statics</span>
             <span class="tag">SolidWorks</span>
-            <span class="tag">FBD</span>
+            <span class="tag">Free-Body Diagrams</span>
           </div>
 
           <p>
             Performed a mechanical analysis of a WORKPRO bolt cutter
             to evaluate mechanical advantage and force amplification
-            using free-body diagrams and static equilibrium.
+            using free-body diagrams, static equilibrium, and CAD modeling.
           </p>
 
-          <a class="project-link" href="bolt-cutter.html">
+          <a
+            class="project-link"
+            href="bolt-cutter.html"
+          >
             View Project →
           </a>
 
@@ -581,7 +683,9 @@
 
         <div class="project-content">
 
-          <h3>Stirling Engine Analysis</h3>
+          <h3>
+            Stirling Engine Analysis
+          </h3>
 
           <div class="tags">
             <span class="tag">Thermodynamics</span>
@@ -591,8 +695,9 @@
 
           <p>
             Dissected and analyzed a low-temperature Stirling engine,
-            modeled components in SolidWorks, and experimentally studied
-            the relationship between temperature difference and flywheel RPM.
+            modeled its components and assembly in SolidWorks, and
+            experimentally studied the relationship between temperature
+            difference and flywheel RPM.
           </p>
 
           <span class="project-link">
@@ -612,18 +717,55 @@
 
         <div class="project-content">
 
-          <h3>Soccer Robot</h3>
+          <h3>
+            Soccer Robot
+          </h3>
 
           <div class="tags">
             <span class="tag">Arduino</span>
+            <span class="tag">Wireless Control</span>
+            <span class="tag">3D Printing</span>
+          </div>
+
+          <p>
+            Built and competed with an Arduino-based soccer robot
+            in a Robotics Club competition using wireless communication
+            for remote control. Designed and 3D printed a custom
+            U-shaped ball pusher for improved ball control.
+          </p>
+
+          <span class="project-link">
+            Project Page Coming Soon
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- POKER CHIP TRAY -->
+
+      <div class="project-card">
+
+        <div class="project-top"></div>
+
+        <div class="project-content">
+
+          <h3>
+            Custom Poker Chip Tray
+          </h3>
+
+          <div class="tags">
+            <span class="tag">CAD Design</span>
             <span class="tag">3D Printing</span>
             <span class="tag">Prototyping</span>
           </div>
 
           <p>
-            Built an Arduino-based soccer robot for a Robotics Club
-            competition and designed a custom 3D-printed U-shaped
-            ball pusher for improved control.
+            Designed and 3D printed a custom poker chip tray to improve
+            chip organization and accessibility during home games.
+            Developed the design around real-world dimensions and
+            iterated the geometry for fit, stability, and printability.
           </p>
 
           <span class="project-link">
@@ -644,59 +786,93 @@
 
   <section id="skills">
 
-    <h2 class="section-title">Technical Skills</h2>
+    <h2 class="section-title">
+      Technical Skills
+    </h2>
 
     <p class="section-description">
-      Engineering software, manufacturing tools, and technical experience.
+      Engineering software, quality tools, manufacturing experience,
+      and production systems.
     </p>
 
 
     <div class="skills-grid">
 
+
+      <!-- ENGINEERING -->
+
       <div class="skill-card">
 
-        <h3>Engineering</h3>
+        <h3>
+          Engineering
+        </h3>
 
         <p>
-          SolidWorks<br>
-          MATLAB<br>
-          Arduino<br>
-          3D Printing<br>
-          VBA / Excel
+          SolidWorks
+          <br>
+          MATLAB
+          <br>
+          Arduino
+          <br>
+          3D Printing
+          <br>
+          VBA / Microsoft Excel
         </p>
 
       </div>
 
 
+      <!-- QUALITY -->
+
       <div class="skill-card">
 
-        <h3>Quality & Manufacturing</h3>
+        <h3>
+          Quality & Manufacturing
+        </h3>
 
         <p>
-          GD&T<br>
-          CMM Inspection<br>
-          Calipers & Micrometers<br>
-          Height & Thread Gauges<br>
-          Lean Six Sigma<br>
+          GD&T
+          <br>
+          Dimensional Inspection
+          <br>
+          CMM
+          <br>
+          Calipers & Micrometers
+          <br>
+          Height Gauges
+          <br>
+          Thread Gauges
+          <br>
+          Lean Six Sigma
+          <br>
           CAPA
         </p>
 
       </div>
 
 
+      <!-- PRODUCTION -->
+
       <div class="skill-card">
 
-        <h3>Production Systems</h3>
+        <h3>
+          Production Systems
+        </h3>
 
         <p>
-          Realtrac ERP<br>
-          PowerPick<br>
-          VLM Inventory Management<br>
-          Engineering Drawings<br>
-          Dimensional Inspection
+          Realtrac ERP
+          <br>
+          PowerPick
+          <br>
+          VLM Inventory Management
+          <br>
+          Engineering Drawings
+          <br>
+          Production Tracking
         </p>
 
       </div>
+
 
     </div>
 
@@ -712,7 +888,8 @@
     </h2>
 
     <p>
-      Interested in discussing engineering opportunities or projects?
+      Interested in discussing engineering opportunities,
+      internships, or projects?
     </p>
 
     <a
@@ -720,6 +897,14 @@
       href="mailto:Trancarson1213@gmail.com"
     >
       Email Me
+    </a>
+
+    <a
+      class="button secondary"
+      href="https://github.com/Carsontrann"
+      target="_blank"
+    >
+      GitHub
     </a>
 
   </section>
@@ -733,4 +918,5 @@
 
 
 </body>
+
 </html>
