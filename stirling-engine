@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stirling Engine Analysis | Carson Tran</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+      line-height: 1.65;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+      background: #0f172a;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      color: white;
+      padding: 85px 8%;
+    }
+
+    .hero-content {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #60a5fa;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      color: #cbd5e1;
+      max-width: 800px;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: rgba(96, 165, 250, 0.14);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      color: #bfdbfe;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+
+    /* MAIN CONTENT */
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 65px 30px;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: #64748b;
+      max-width: 820px;
+      margin-bottom: 30px;
+    }
+
+
+    /* PROJECT INFO */
+
+    .project-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      border-left: 3px solid #2563eb;
+      padding-left: 15px;
+    }
+
+    .info-label {
+      color: #64748b;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      color: #0f172a;
+      font-weight: bold;
+      margin-top: 3px;
+    }
+
+
+    /* RESULT CARDS */
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .result-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .result-value {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .result-label {
+      color: #64748b;
+      margin-top: 5px;
+    }
+
+    .result-sub {
+      color: #94a3b8;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+
+    /* GENERAL CARDS */
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .card h3 {
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #475569;
+    }
+
+
+    /* TWO COLUMN */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+
+    /* HOW IT WORKS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .process-step {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .step-number {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .process-step h3 {
+      font-size: 17px;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+
+    /* COMPONENTS */
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .component-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .component-card h3 {
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .component-card p {
+      color: #64748b;
+    }
+
+    .component-detail {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+
+    /* EXPERIMENT WORKFLOW */
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .workflow-step {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .workflow-step h3 {
+      color: #0f172a;
+      margin-bottom: 7px;
+      font-size: 17px;
+    }
+
+    .workflow-step p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+
+    /* ICE TRIAL */
+
+    .ice-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 25px;
+    }
+
+    .ice-box h3 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .ice-box p {
+      color: #475569;
+    }
+
+
+    /* CHART */
+
+    .chart-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+
+    #rpmChart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .chart-caption {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+
+    /* EQUATION RESULT */
+
+    .analysis-box {
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 25px;
+    }
+
+    .analysis-box h3 {
+      margin-bottom: 12px;
+    }
+
+    .analysis-box p {
+      color: #cbd5e1;
+      margin-bottom: 8px;
+    }
+
+    .equation {
+      font-size: 27px;
+      font-weight: bold;
+      color: #60a5fa;
+      margin: 16px 0;
+    }
+
+
+    /* CONTRIBUTION */
+
+    .contribution {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .contribution h3 {
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .contribution p {
+      color: #475569;
+    }
+
+
+    /* BUTTON */
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: #0f172a;
+    }
+
+    .button.secondary:hover {
+      background: #1e293b;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 28px;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .results-grid,
+      .two-column,
+      .process-grid,
+      .components-grid,
+      .workflow,
+      .project-info {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 45px 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <div class="logo">
+    Carson Tran
+  </div>
+
+  <a href="index.html">
+    ← Back to Portfolio
+  </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      THERMODYNAMICS • EXPERIMENTAL ANALYSIS • MECHANICAL DISSECTION
+    </div>
+
+    <h1>
+      Low-Temperature Stirling Engine Analysis
+    </h1>
+
+    <p class="hero-description">
+      Mechanical dissection and experimental analysis of a Sunnytech LT001
+      Low Temperature Differential Stirling Engine to investigate how thermal
+      energy is converted into mechanical motion and how flywheel speed changes
+      with temperature difference.
+    </p>
+
+    <div class="tags">
+
+      <span class="tag">Thermodynamics</span>
+      <span class="tag">Experimental Design</span>
+      <span class="tag">Data Analysis</span>
+      <span class="tag">Mechanical Dissection</span>
+      <span class="tag">Heat Engines</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<main>
+
+
+<!-- PROJECT OVERVIEW -->
+
+<section>
+
+  <h2 class="section-title">
+    Project Overview
+  </h2>
+
+  <p class="section-intro">
+    This project investigated the mechanical design and thermal behavior
+    of a Low Temperature Differential Stirling engine. The engine was
+    disassembled to examine its internal components, reassembled and tested,
+    and experimentally evaluated to determine how temperature difference
+    affects flywheel rotational speed.
+  </p>
+
+
+  <div class="project-info">
+
+
+    <div class="info-item">
+
+      <div class="info-label">
+        Project Type
+      </div>
+
+      <div class="info-value">
+        Experimental Mechanical Analysis
+      </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <div class="info-label">
+        Primary Contribution
+      </div>
+
+      <div class="info-value">
+        Experiment Design & Data Analysis
+      </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <div class="info-label">
+        System
+      </div>
+
+      <div class="info-value">
+        Sunnytech LT001 Stirling Engine
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- KEY RESULTS -->
+
+<section>
+
+  <h2 class="section-title">
+    Key Results
+  </h2>
+
+  <p class="section-intro">
+    Experimental testing showed a strong relationship between the
+    temperature difference across the engine and the rotational speed
+    of the flywheel.
+  </p>
+
+
+  <div class="results-grid">
+
+
+    <div class="result-card">
+
+      <div class="result-value">
+        ~3.3°C
+      </div>
+
+      <div class="result-label">
+        Minimum Startup ΔT
+      </div>
+
+      <div class="result-sub">
+        Calculated from the regression model
+      </div>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <div class="result-value">
+        246 RPM
+      </div>
+
+      <div class="result-label">
+        Highest Measured Speed
+      </div>
+
+      <div class="result-sub">
+        At ΔT = 73.4°C
+      </div>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <div class="result-value">
+        -70 RPM
+      </div>
+
+      <div class="result-label">
+        Ice Trial
+      </div>
+
+      <div class="result-sub">
+        Reverse rotation at ΔT = -21.5°C
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+  <h2 class="section-title">
+    How the Stirling Engine Works
+  </h2>
+
+  <p class="section-intro">
+    The engine converts heat into mechanical motion by repeatedly heating
+    and cooling the trapped air inside the engine.
+  </p>
+
+
+  <div class="process-grid">
+
+
+    <div class="process-step">
+
+      <div class="step-number">
+        STEP 01
+      </div>
+
+      <h3>
+        Heat
+      </h3>
+
+      <p>
+        A temperature difference is created between the bottom hot plate
+        and the cooler top plate.
+      </p>
+
+    </div>
+
+
+    <div class="process-step">
+
+      <div class="step-number">
+        STEP 02
+      </div>
+
+      <h3>
+        Expand
+      </h3>
+
+      <p>
+        The displacer moves air toward the hot side, causing the trapped
+        air to heat and expand.
+      </p>
+
+    </div>
+
+
+    <div class="process-step">
+
+      <div class="step-number">
+        STEP 03
+      </div>
+
+      <h3>
+        Produce Motion
+      </h3>
+
+      <p>
+        The expanding air pushes the piston, which drives the crankshaft
+        and rotates the flywheel.
+      </p>
+
+    </div>
+
+
+    <div class="process-step">
+
+      <div class="step-number">
+        STEP 04
+      </div>
+
+      <h3>
+        Cool & Repeat
+      </h3>
+
+      <p>
+        The displacer moves the air toward the cool side, where it contracts,
+        allowing the cycle to repeat continuously.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- THERMODYNAMIC PRINCIPLES -->
+
+<section>
+
+  <h2 class="section-title">
+    Engineering Principles
+  </h2>
+
+
+  <div class="two-column">
+
+
+    <div class="card">
+
+      <h3>
+        First Law of Thermodynamics
+      </h3>
+
+      <p>
+        The engine converts heat input into mechanical work. Because
+        the engine operates cyclically, the working gas returns to its
+        initial state after each complete cycle.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Temperature Difference
+      </h3>
+
+      <p>
+        A thermal gradient is required for operation. Heat naturally
+        transfers from the hotter region toward the colder region,
+        allowing the engine to produce useful mechanical motion.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Ideal Gas Behavior
+      </h3>
+
+      <p>
+        The air inside the engine expands when heated and contracts
+        when cooled. These pressure and volume changes drive the piston.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Flywheel Momentum
+      </h3>
+
+      <p>
+        The flywheel stores rotational energy and helps maintain
+        smooth continuous motion as the engine moves through each
+        stage of its thermodynamic cycle.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- MECHANICAL DISSECTION -->
+
+<section>
+
+  <h2 class="section-title">
+    Mechanical Dissection
+  </h2>
+
+  <p class="section-intro">
+    The engine was carefully disassembled to identify the major components,
+    understand their functions, and examine how the thermal and mechanical
+    subsystems interact.
+  </p>
+
+
+  <div class="components-grid">
+
+
+    <div class="component-card">
+
+      <div class="component-detail">
+        PISTON ASSEMBLY
+      </div>
+
+      <h3>
+        Piston & Connecting Rod
+      </h3>
+
+      <p>
+        The glass piston responds to pressure changes in the working air.
+        Its linear motion is transferred through the connecting rod
+        to the crankshaft.
+      </p>
+
+    </div>
+
+
+    <div class="component-card">
+
+      <div class="component-detail">
+        ROTATING ASSEMBLY
+      </div>
+
+      <h3>
+        Crankshaft & Flywheel
+      </h3>
+
+      <p>
+        The crankshaft converts the piston's linear movement into
+        rotational motion while the flywheel stores rotational energy
+        and helps maintain smooth operation.
+      </p>
+
+    </div>
+
+
+    <div class="component-card">
+
+      <div class="component-detail">
+        THERMAL SYSTEM
+      </div>
+
+      <h3>
+        Top & Bottom Plates
+      </h3>
+
+      <p>
+        The bottom plate acts as the hot interface while the upper
+        assembly serves as the cooler side of the engine, creating
+        the thermal gradient required for operation.
+      </p>
+
+    </div>
+
+
+    <div class="component-card">
+
+      <div class="component-detail">
+        AIR TRANSFER
+      </div>
+
+      <h3>
+        Displacer & Cylinder
+      </h3>
+
+      <p>
+        The displacer moves the working air between the hot and cold
+        regions. The transparent cylinder encloses the working volume
+        while allowing the internal mechanism to remain visible.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- EXPERIMENT -->
+
+<section>
+
+  <h2 class="section-title">
+    Experiment Design
+  </h2>
+
+  <p class="section-intro">
+    I designed an experiment to determine the relationship between
+    flywheel RPM and the temperature difference across the engine.
+    Room temperature was held at approximately 22°C while the bottom
+    plate temperature was varied using hot water.
+  </p>
+
+
+  <div class="workflow">
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 01
+      </div>
+
+      <h3>
+        Control Temperature
+      </h3>
+
+      <p>
+        Room temperature was maintained at approximately 22°C to keep
+        the upper plate near a consistent cold-reservoir temperature.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 02
+      </div>
+
+      <h3>
+        Heat Engine
+      </h3>
+
+      <p>
+        The engine was placed over hot water and allowed approximately
+        three minutes for the bottom plate to heat.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 03
+      </div>
+
+      <h3>
+        Measure
+      </h3>
+
+      <p>
+        Water temperature was measured and flywheel rotations were
+        counted over a 10-second interval.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 04
+      </div>
+
+      <h3>
+        Repeat & Analyze
+      </h3>
+
+      <p>
+        Three trials were performed at each condition and the process
+        was repeated across several temperature differences.
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="ice-box">
+
+    <h3>
+      Ice Trial
+    </h3>
+
+    <p>
+      An additional trial placed the engine over an ice block instead
+      of hot water. This reversed the thermal gradient so the bottom
+      plate became colder than the top plate. The flywheel responded
+      by rotating in the opposite direction, producing a measured
+      speed of -70 RPM at a ΔT of -21.5°C.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- DATA ANALYSIS -->
+
+<section>
+
+  <h2 class="section-title">
+    RPM vs. Temperature Difference
+  </h2>
+
+  <p class="section-intro">
+    The experimental results showed a strong approximately linear
+    relationship between temperature difference and flywheel speed.
+    Greater temperature differences produced higher rotational speeds.
+  </p>
+
+
+  <div class="chart-card">
+
+    <svg
+      id="rpmChart"
+      viewBox="0 0 760 420"
+      role="img"
+      aria-label="Graph of flywheel RPM versus temperature difference"
+    ></svg>
+
+    <div class="chart-caption">
+      Experimental RPM measurements compared with the linear regression model.
+    </div>
+
+  </div>
+
+
+  <div class="analysis-box">
+
+    <h3>
+      Linear Regression
+    </h3>
+
+    <p>
+      The measured data produced the relationship:
+    </p>
+
+    <div class="equation">
+      RPM = 3.26(ΔT) − 10.8
+    </div>
+
+    <p>
+      Setting RPM equal to zero gives the estimated minimum
+      temperature difference required for startup:
+    </p>
+
+    <div class="equation">
+      ΔT ≈ 3.3°C
+    </div>
+
+    <p>
+      This means the engine required only a small thermal gradient
+      before the flywheel began rotating.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PERSONAL CONTRIBUTION -->
+
+<section>
+
+  <h2 class="section-title">
+    My Contribution
+  </h2>
+
+
+  <div class="contribution">
+
+    <h3>
+      Experimental Design & Analysis
+    </h3>
+
+    <p>
+      My primary focus was designing the experimental procedure and
+      analyzing the resulting data. I developed the testing setup,
+      controlled the room-temperature condition, selected a range of
+      hot-water temperatures, measured flywheel rotation, and evaluated
+      the relationship between RPM and temperature difference.
+    </p>
+
+    <br>
+
+    <p>
+      I also introduced the ice-block trial to investigate what would
+      happen when the thermal gradient was reversed. The experiment
+      demonstrated reverse flywheel rotation and provided additional
+      insight into the engine's operating behavior.
+    </p>
+
+    <br>
+
+    <p>
+      The linear regression also allowed the minimum temperature
+      difference required for startup to be estimated, extending the
+      experiment beyond the original goal of simply measuring RPM
+      versus temperature.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- DESIGN DOCUMENTATION -->
+
+<section>
+
+  <h2 class="section-title">
+    Design Documentation
+  </h2>
+
+  <p class="section-intro">
+    The overall project also included a complete SolidWorks model of
+    the Stirling engine and detailed engineering drawings of its
+    components and assemblies. My primary contribution to the project
+    centered on experimental design and data analysis.
+  </p>
+
+
+  <div class="button-row">
+
+    <a
+      class="button"
+      href="https://drive.google.com/file/d/13_mL27uAF8wNreLHuDX3BxPNyA31ld8d/view?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View 3D Model
+    </a>
+
+
+    <a
+      class="button secondary"
+      href="https://drive.google.com/drive/folders/1lXAk3pKbAJ7Bzjv4kVRrLyDe4mBjhWbd?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View Engineering Drawings
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- LIMITATIONS -->
+
+<section>
+
+  <h2 class="section-title">
+    Experimental Limitations & Improvements
+  </h2>
+
+
+  <div class="two-column">
+
+
+    <div class="card">
+
+      <h3>
+        Heat Loss
+      </h3>
+
+      <p>
+        The hot-water container was not insulated, allowing heat
+        to escape during testing and potentially changing the actual
+        temperature experienced by the bottom plate.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Improved Temperature Measurement
+      </h3>
+
+      <p>
+        A future version of the experiment could use an insulated
+        container and a digital temperature probe mounted directly
+        to the engine's bottom plate for more accurate and consistent
+        measurements.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ENGINEERING TAKEAWAYS -->
+
+<section>
+
+  <h2 class="section-title">
+    Engineering Takeaways
+  </h2>
+
+
+  <div class="two-column">
+
+
+    <div class="card">
+
+      <h3>
+        Experimental Design
+      </h3>
+
+      <p>
+        Developing a testing procedure from scratch required deciding
+        which variables to control, how to collect repeatable measurements,
+        and how to evaluate the resulting data.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Thermodynamics in Practice
+      </h3>
+
+      <p>
+        The project demonstrated how a temperature difference can
+        produce pressure changes and ultimately mechanical work in
+        a functioning heat engine.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Data Analysis
+      </h3>
+
+      <p>
+        Experimental measurements revealed a strong linear relationship
+        between temperature difference and rotational speed and allowed
+        the startup temperature difference to be estimated.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Reverse Operation
+      </h3>
+
+      <p>
+        The ice trial showed that reversing the direction of the
+        temperature gradient also reverses the direction of flywheel
+        rotation.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- CONCLUSION -->
+
+<section>
+
+  <h2 class="section-title">
+    Conclusion
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      The Stirling engine experiment demonstrated a clear relationship
+      between thermal gradient and mechanical output. As the temperature
+      difference increased, flywheel speed increased approximately
+      linearly.
+    </p>
+
+    <br>
+
+    <p>
+      The measured data produced a regression of RPM = 3.26(ΔT) − 10.8,
+      corresponding to an estimated startup temperature difference of
+      approximately 3.3°C. The ice trial further demonstrated that
+      reversing the thermal gradient reverses the direction of rotation.
+    </p>
+
+    <br>
+
+    <p>
+      Overall, the project combined mechanical dissection, thermodynamic
+      principles, experimental design, testing, and data analysis to
+      investigate the operation of a real heat engine.
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 Carson Tran | Mechanical Engineering Portfolio
+</footer>
+
+
+<!-- GRAPH SCRIPT -->
+
+<script>
+
+  const svg = document.getElementById("rpmChart");
+  const NS = "http://www.w3.org/2000/svg";
+
+  const data = [
+    { dt: -21.5, rpm: -70 },
+    { dt: 18.3, rpm: 58 },
+    { dt: 39.1, rpm: 92 },
+    { dt: 40.3, rpm: 104 },
+    { dt: 51.5, rpm: 142 },
+    { dt: 63.2, rpm: 214 },
+    { dt: 73.4, rpm: 246 }
+  ];
+
+  const width = 760;
+  const height = 420;
+
+  const margin = {
+    left: 75,
+    right: 30,
+    top: 30,
+    bottom: 65
+  };
+
+  const xMin = -25;
+  const xMax = 80;
+
+  const yMin = -100;
+  const yMax = 270;
+
+  const plotWidth =
+    width - margin.left - margin.right;
+
+  const plotHeight =
+    height - margin.top - margin.bottom;
+
+
+  function sx(x) {
+
+    return margin.left +
+      ((x - xMin) / (xMax - xMin)) *
+      plotWidth;
+
+  }
+
+
+  function sy(y) {
+
+    return margin.top +
+      (1 - ((y - yMin) / (yMax - yMin))) *
+      plotHeight;
+
+  }
+
+
+  function add(type, attributes, text) {
+
+    const element =
+      document.createElementNS(NS, type);
+
+    for (const key in attributes) {
+      element.setAttribute(key, attributes[key]);
+    }
+
+    if (text !== undefined) {
+      element.textContent = text;
+    }
+
+    svg.appendChild(element);
+
+    return element;
+
+  }
+
+
+  /* BACKGROUND */
+
+  add("rect", {
+    x: 0,
+    y: 0,
+    width: width,
+    height: height,
+    fill: "#ffffff"
+  });
+
+
+  /* GRID */
+
+  const xTicks = [-20, 0, 20, 40, 60, 80];
+  const yTicks = [-100, 0, 100, 200];
+
+
+  xTicks.forEach(value => {
+
+    add("line", {
+      x1: sx(value),
+      x2: sx(value),
+      y1: margin.top,
+      y2: height - margin.bottom,
+      stroke: "#e2e8f0",
+      "stroke-width": "1"
+    });
+
+    add("text", {
+      x: sx(value),
+      y: height - margin.bottom + 24,
+      "text-anchor": "middle",
+      fill: "#64748b",
+      "font-size": "13"
+    }, value);
+
+  });
+
+
+  yTicks.forEach(value => {
+
+    add("line", {
+      x1: margin.left,
+      x2: width - margin.right,
+      y1: sy(value),
+      y2: sy(value),
+      stroke: "#e2e8f0",
+      "stroke-width": "1"
+    });
+
+    add("text", {
+      x: margin.left - 12,
+      y: sy(value) + 4,
+      "text-anchor": "end",
+      fill: "#64748b",
+      "font-size": "13"
+    }, value);
+
+  });
+
+
+  /* AXES */
+
+  add("line", {
+    x1: margin.left,
+    y1: height - margin.bottom,
+    x2: width - margin.right,
+    y2: height - margin.bottom,
+    stroke: "#334155",
+    "stroke-width": "2"
+  });
+
+
+  add("line", {
+    x1: margin.left,
+    y1: margin.top,
+    x2: margin.left,
+    y2: height - margin.bottom,
+    stroke: "#334155",
+    "stroke-width": "2"
+  });
+
+
+  /* ZERO LINES */
+
+  add("line", {
+    x1: sx(0),
+    x2: sx(0),
+    y1: margin.top,
+    y2: height - margin.bottom,
+    stroke: "#94a3b8",
+    "stroke-width": "1.5"
+  });
+
+
+  add("line", {
+    x1: margin.left,
+    x2: width - margin.right,
+    y1: sy(0),
+    y2: sy(0),
+    stroke: "#94a3b8",
+    "stroke-width": "1.5"
+  });
+
+
+  /* REGRESSION LINE */
+
+  const lineX1 = -25;
+  const lineX2 = 80;
+
+  const lineY1 =
+    3.26 * lineX1 - 10.8;
+
+  const lineY2 =
+    3.26 * lineX2 - 10.8;
+
+
+  add("line", {
+    x1: sx(lineX1),
+    y1: sy(lineY1),
+    x2: sx(lineX2),
+    y2: sy(lineY2),
+    stroke: "#60a5fa",
+    "stroke-width": "3"
+  });
+
+
+  /* DATA POINTS */
+
+  data.forEach(point => {
+
+    const circle = add("circle", {
+      cx: sx(point.dt),
+      cy: sy(point.rpm),
+      r: 6,
+      fill: "#2563eb",
+      stroke: "#ffffff",
+      "stroke-width": "2"
+    });
+
+    const title =
+      document.createElementNS(NS, "title");
+
+    title.textContent =
+      "ΔT: " +
+      point.dt +
+      "°C, RPM: " +
+      point.rpm;
+
+    circle.appendChild(title);
+
+  });
+
+
+  /* AXIS LABELS */
+
+  add("text", {
+    x: margin.left + plotWidth / 2,
+    y: height - 15,
+    "text-anchor": "middle",
+    fill: "#334155",
+    "font-size": "15",
+    "font-weight": "bold"
+  }, "Temperature Difference, ΔT (°C)");
+
+
+  const yLabel = add("text", {
+    x: 20,
+    y: margin.top + plotHeight / 2,
+    "text-anchor": "middle",
+    fill: "#334155",
+    "font-size": "15",
+    "font-weight": "bold",
+    transform:
+      "rotate(-90 20 " +
+      (margin.top + plotHeight / 2) +
+      ")"
+  }, "Flywheel Speed (RPM)");
+
+
+  /* LEGEND */
+
+  add("circle", {
+    cx: 525,
+    cy: 28,
+    r: 5,
+    fill: "#2563eb"
+  });
+
+  add("text", {
+    x: 538,
+    y: 33,
+    fill: "#475569",
+    "font-size": "12"
+  }, "Measured Data");
+
+
+  add("line", {
+    x1: 635,
+    x2: 665,
+    y1: 28,
+    y2: 28,
+    stroke: "#60a5fa",
+    "stroke-width": "3"
+  });
+
+  add("text", {
+    x: 672,
+    y: 33,
+    fill: "#475569",
+    "font-size": "12"
+  }, "Linear Fit");
+
+</script>
+
+
+</body>
+
+</html>
