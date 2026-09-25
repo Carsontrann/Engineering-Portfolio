@@ -1,4 +1,4 @@
-Then paste this entire code:
+I’d use the customer names only if you’re comfortable that you’re allowed to publicly disclose that Talsco produced parts for them. Assuming that’s okay, replace your current talsco.html with this:
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +93,7 @@ Then paste this entire code:
 
     .hero-description {
       color: #cbd5e1;
-      max-width: 820px;
+      max-width: 850px;
       font-size: 18px;
       margin-bottom: 25px;
     }
@@ -138,7 +138,7 @@ Then paste this entire code:
 
     .section-intro {
       color: #64748b;
-      max-width: 820px;
+      max-width: 850px;
       margin-bottom: 30px;
     }
 
@@ -208,7 +208,7 @@ Then paste this entire code:
     }
 
     .card li {
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
 
@@ -256,22 +256,43 @@ Then paste this entire code:
     }
 
 
-    /* CONFIDENTIALITY */
+    /* CUSTOMER BOX */
 
-    .confidentiality {
+    .customer-box {
       background: #eff6ff;
       border: 1px solid #bfdbfe;
       border-radius: 12px;
-      padding: 25px;
+      padding: 28px;
+      margin-top: 25px;
+    }
+
+    .customer-box h3 {
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    .customer-box p {
+      color: #475569;
+    }
+
+
+    /* CONFIDENTIALITY */
+
+    .confidentiality {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #2563eb;
+      border-radius: 10px;
+      padding: 22px;
       margin-top: 25px;
     }
 
     .confidentiality strong {
-      color: #1e3a8a;
+      color: #0f172a;
     }
 
     .confidentiality p {
-      color: #475569;
+      color: #64748b;
       margin-top: 5px;
     }
 
@@ -348,19 +369,21 @@ Then paste this entire code:
     </h2>
 
     <p class="hero-description">
-      Hands-on aerospace manufacturing experience spanning quality
-      inspection, SolidWorks CAD, engineering drawings, fixture design,
-      production systems, tooling, and continuous improvement.
+      Hands-on aerospace manufacturing experience spanning SolidWorks CAD,
+      dimensional inspection, fixture design, engineering drawings,
+      machining processes, quality engineering, and production systems.
     </p>
 
     <div class="tags">
 
-      <span class="tag">Quality Engineering</span>
       <span class="tag">SolidWorks</span>
+      <span class="tag">Quality Engineering</span>
       <span class="tag">GD&T</span>
-      <span class="tag">Dimensional Inspection</span>
-      <span class="tag">Aerospace Manufacturing</span>
-      <span class="tag">ERP Systems</span>
+      <span class="tag">CMM Inspection</span>
+      <span class="tag">5-Axis Machining</span>
+      <span class="tag">CNC Turning</span>
+      <span class="tag">Fixture Design</span>
+      <span class="tag">Sheet Metal</span>
 
     </div>
 
@@ -368,8 +391,6 @@ Then paste this entire code:
 
 </div>
 
-
-<!-- MAIN -->
 
 <main>
 
@@ -386,21 +407,22 @@ Then paste this entire code:
     During my internship at Talsco Aerospace Manufacturing, I worked
     alongside quality engineers, machinists, CNC programmers, and
     manufacturing personnel to support the production and inspection
-    of aerospace components.
+    of components for the aerospace industry.
   </p>
 
-  <div class="highlight-box">
+
+  <div class="customer-box">
 
     <h3>
-      Cross-Functional Aerospace Manufacturing Experience
+      Aerospace Production Experience
     </h3>
 
     <p>
-      My work connected engineering drawings and CAD models with
-      real manufacturing and inspection processes. I gained experience
-      seeing how components move from customer requirements and drawings
-      through modeling, production, inspection, documentation, and
-      inventory control.
+      The production work I supported primarily involved aerospace
+      components associated with Parker, Honeywell, Boeing, and SpaceX.
+      Approximately 60% of the parts I worked with were sheet-metal
+      components, with the remaining work including machined components,
+      tooling, fixtures, and other manufactured hardware.
     </p>
 
   </div>
@@ -444,11 +466,11 @@ Then paste this entire code:
       </div>
 
       <div class="metric-label">
-        Aerospace Components Modeled
+        Aerospace Parts Modeled
       </div>
 
       <div class="metric-sub">
-        From customer engineering drawings
+        From real customer engineering drawings
       </div>
 
     </div>
@@ -457,15 +479,15 @@ Then paste this entire code:
     <div class="metric-card">
 
       <div class="metric-value">
-        CAD + Quality
+        ~60%
       </div>
 
       <div class="metric-label">
-        Cross-Functional Role
+        Sheet-Metal Components
       </div>
 
       <div class="metric-sub">
-        Design, inspection, and manufacturing
+        Of the parts I worked with
       </div>
 
     </div>
@@ -476,7 +498,7 @@ Then paste this entire code:
 </section>
 
 
-<!-- CAD -->
+<!-- SOLIDWORKS -->
 
 <section>
 
@@ -485,9 +507,10 @@ Then paste this entire code:
   </h2>
 
   <p class="section-intro">
-    CAD was one of the largest parts of my internship. I spent more than
-    300 hours using SolidWorks and modeled over 30 production aerospace
-    components from customer engineering drawings.
+    CAD was one of the largest parts of my internship. I accumulated
+    more than 300 hours of hands-on SolidWorks experience and modeled
+    over 30 real aerospace components using customer engineering drawings
+    as the design reference.
   </p>
 
 
@@ -497,29 +520,35 @@ Then paste this entire code:
     <div class="card">
 
       <h3>
-        CAD Modeling
+        Production Part Modeling
       </h3>
 
       <ul>
+
         <li>
-          Created 3D models from customer-supplied engineering drawings
+          Modeled 30+ aerospace components from customer engineering drawings.
         </li>
 
         <li>
-          Modeled 30+ production aerospace components
+          Worked with components associated with Parker, Honeywell,
+          Boeing, and SpaceX production.
         </li>
 
         <li>
-          Created and revised SolidWorks parts and assemblies
+          Created and revised SolidWorks parts, assemblies,
+          and engineering drawings.
         </li>
 
         <li>
-          Interpreted dimensions, tolerances, features, and manufacturing requirements
+          Interpreted dimensions, tolerances, hole patterns,
+          formed geometry, and manufacturing requirements.
         </li>
 
         <li>
-          Updated models to support production and engineering changes
+          Developed significant experience modeling sheet-metal
+          components and manufactured parts.
         </li>
+
       </ul>
 
     </div>
@@ -528,25 +557,31 @@ Then paste this entire code:
     <div class="card">
 
       <h3>
-        Engineering Documentation
+        Design for Manufacturing
       </h3>
 
       <ul>
+
         <li>
-          Created and revised manufacturing drawings
+          Connected CAD geometry with the manufacturing processes
+          required to produce each component.
         </li>
 
         <li>
-          Worked with GD&T and dimensional requirements
+          Considered machining access, workholding, tolerances,
+          and inspection requirements during modeling.
         </li>
 
         <li>
-          Compared CAD geometry with production and inspection requirements
+          Designed manufacturing fixtures to support machining
+          and production operations.
         </li>
 
         <li>
-          Supported communication between engineering, quality, and manufacturing
+          Gained exposure to tooling and die-making processes
+          used for sheet-metal production.
         </li>
+
       </ul>
 
     </div>
@@ -558,12 +593,13 @@ Then paste this entire code:
   <div class="confidentiality">
 
     <strong>
-      Proprietary Aerospace Work
+      Proprietary Work
     </strong>
 
     <p>
-      Customer CAD models, engineering drawings, part numbers, and proprietary
-      component geometry are not displayed publicly.
+      Customer CAD models, engineering drawings, dimensions, part numbers,
+      and proprietary component geometry are intentionally not displayed
+      in this portfolio.
     </p>
 
   </div>
@@ -571,61 +607,7 @@ Then paste this entire code:
 </section>
 
 
-<!-- FIXTURES & TOOLING -->
-
-<section>
-
-  <h2 class="section-title">
-    Fixtures, Tooling & Die Making
-  </h2>
-
-  <p class="section-intro">
-    In addition to production-part modeling, I gained experience with
-    manufacturing support tooling and learned how fixtures and dies
-    contribute to repeatable aerospace production.
-  </p>
-
-
-  <div class="two-column">
-
-
-    <div class="card">
-
-      <h3>
-        Fixture Design
-      </h3>
-
-      <p>
-        Designed manufacturing fixtures in SolidWorks to support production
-        operations. This required considering component geometry, positioning,
-        accessibility, repeatability, and how the fixture would interact with
-        the manufacturing process.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>
-        Tooling & Die Making
-      </h3>
-
-      <p>
-        Gained exposure to tooling and die-making processes used in production,
-        providing practical experience with how custom tooling supports
-        manufacturing consistency and part quality.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- QUALITY -->
+<!-- QUALITY ENGINEERING -->
 
 <section>
 
@@ -634,9 +616,9 @@ Then paste this entire code:
   </h2>
 
   <p class="section-intro">
-    Quality work involved verifying that manufactured aerospace components
-    conformed to engineering drawings, dimensional requirements, and
-    production specifications.
+    I supported quality assurance by verifying that manufactured aerospace
+    components conformed to customer drawings, dimensional requirements,
+    and production specifications.
   </p>
 
 
@@ -646,7 +628,7 @@ Then paste this entire code:
     <div class="skill-card">
 
       <h3>
-        Dimensional Inspection
+        Inspection Equipment
       </h3>
 
       <p>
@@ -654,7 +636,7 @@ Then paste this entire code:
         Micrometers<br>
         Height Gauges<br>
         Thread Gauges<br>
-        CMM Inspection
+        CMM
       </p>
 
     </div>
@@ -680,12 +662,12 @@ Then paste this entire code:
     <div class="skill-card">
 
       <h3>
-        Continuous Improvement
+        Process Improvement
       </h3>
 
       <p>
-        Lean Six Sigma Principles<br>
-        Process Improvement<br>
+        Lean Six Sigma<br>
+        Continuous Improvement<br>
         Manufacturing Repeatability<br>
         Quality Documentation
       </p>
@@ -698,28 +680,90 @@ Then paste this entire code:
 </section>
 
 
-<!-- MANUFACTURING -->
+<!-- MANUFACTURING EXPOSURE -->
 
 <section>
 
   <h2 class="section-title">
-    Manufacturing Exposure
+    Manufacturing & Machining Exposure
   </h2>
 
   <p class="section-intro">
-    Working directly in an aerospace manufacturing environment gave me
-    exposure to a wide range of processes and helped connect CAD and
-    engineering drawings to the way parts are actually produced.
+    Working directly with manufacturing operators gave me a better
+    understanding of how CAD models and engineering drawings are converted
+    into physical aerospace components.
   </p>
 
 
-  <div class="card">
+  <div class="two-column">
+
+
+    <div class="card">
+
+      <h3>
+        5-Axis CNC Machining
+      </h3>
+
+      <p>
+        I had one-on-one sessions with experienced 5-axis machine operators
+        to better understand how complex aerospace components are programmed,
+        set up, and machined. I gained insight into tool access, machining
+        sequences, part orientation, workholding, and the planning required
+        before a part reaches the machine.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        CNC Lathe Operations
+      </h3>
+
+      <p>
+        I also worked one-on-one with lathe operators to learn how turning
+        operations are planned and programmed. These sessions gave me a
+        better understanding of tool selection, machining order, part setup,
+        workholding, and how rotational components are produced from raw
+        material.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- FIXTURE DESIGN -->
+
+<section>
+
+  <h2 class="section-title">
+    Fixture Design & Manufacturing Support
+  </h2>
+
+  <p class="section-intro">
+    One of the most valuable parts of the internship was learning how
+    machining strategy affects fixture design.
+  </p>
+
+
+  <div class="highlight-box">
+
+    <h3>
+      Designing for the Machine
+    </h3>
 
     <p>
-      Manufacturing processes I worked around included CNC milling,
-      CNC turning, 5-axis machining, EDM, laser cutting, waterjet cutting,
-      stamping, rolling, sheet-metal forming, deburring, and press-brake
-      operations.
+      Through one-on-one discussions with 5-axis and lathe operators,
+      I learned how programmers and machinists approach part orientation,
+      tool access, clamping, machining sequences, and workholding.
+      I applied these insights when designing manufacturing fixtures
+      in SolidWorks, considering how the part would be located,
+      supported, secured, and accessed during machining.
     </p>
 
   </div>
@@ -727,7 +771,36 @@ Then paste this entire code:
 </section>
 
 
-<!-- ERP -->
+<!-- OTHER MANUFACTURING -->
+
+<section>
+
+  <h2 class="section-title">
+    Additional Manufacturing Processes
+  </h2>
+
+  <p class="section-intro">
+    My time on the manufacturing floor also exposed me to a variety
+    of processes used to produce both machined and sheet-metal aerospace
+    components.
+  </p>
+
+
+  <div class="card">
+
+    <p>
+      Manufacturing processes included CNC milling, CNC turning,
+      5-axis machining, EDM, laser cutting, waterjet cutting,
+      stamping, rolling, press-brake forming, deburring,
+      sheet-metal fabrication, fixture manufacturing, and die-making.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTION SYSTEMS -->
 
 <section>
 
@@ -736,8 +809,9 @@ Then paste this entire code:
   </h2>
 
   <p class="section-intro">
-    I also worked with the digital systems used to coordinate production,
-    documentation, and material movement across the shop.
+    In addition to engineering and manufacturing work, I used production
+    management systems that connected jobs, documentation, inventory,
+    and shop-floor operations.
   </p>
 
 
@@ -752,7 +826,8 @@ Then paste this entire code:
 
       <p>
         Used Realtrac ERP for production tracking, job documentation,
-        workflow coordination, and manufacturing information.
+        workflow coordination, and access to manufacturing information
+        throughout the production process.
       </p>
 
     </div>
@@ -761,13 +836,13 @@ Then paste this entire code:
     <div class="card">
 
       <h3>
-        PowerPick & VLM Systems
+        PowerPick & VLM
       </h3>
 
       <p>
-        Used PowerPick software to synchronize and manage inventory
-        stored in Vertical Lift Module systems, connecting digital
-        inventory records with physical material storage.
+        Used PowerPick software with Vertical Lift Module systems
+        to track, organize, and synchronize physical inventory
+        with digital inventory records.
       </p>
 
     </div>
@@ -790,13 +865,21 @@ Then paste this entire code:
   <div class="highlight-box">
 
     <p>
-      This internship gave me experience working across CAD, quality,
-      inspection, manufacturing, tooling, and production systems within
-      an aerospace environment. The combination of 300+ hours of SolidWorks
-      work, 30+ modeled aerospace components, dimensional inspection,
-      fixture design, and exposure to real production workflows strengthened
-      my understanding of how engineering decisions translate into
-      manufacturable and inspectable hardware.
+      My internship at Talsco gave me experience across the full
+      manufacturing workflow rather than in only one engineering area.
+      I gained 300+ hours of SolidWorks experience, modeled more than
+      30 real aerospace components, worked extensively with sheet-metal
+      parts, performed dimensional inspection, designed manufacturing
+      fixtures, and learned directly from 5-axis and lathe operators.
+    </p>
+
+    <br>
+
+    <p>
+      The experience helped me understand the relationship between
+      engineering design, machining, workholding, inspection, quality,
+      and production — and how each of those areas must work together
+      to manufacture aerospace hardware successfully.
     </p>
 
   </div>
@@ -806,8 +889,6 @@ Then paste this entire code:
 
 </main>
 
-
-<!-- FOOTER -->
 
 <footer>
   © 2026 Carson Tran | Mechanical Engineering Portfolio
