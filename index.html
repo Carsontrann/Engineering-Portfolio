@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,6 +23,7 @@
       color: #1f2937;
       line-height: 1.6;
     }
+
 
     /* NAVIGATION */
 
@@ -58,6 +60,7 @@
     nav a:hover {
       color: white;
     }
+
 
     /* HERO */
 
@@ -99,6 +102,9 @@
       margin-bottom: 30px;
     }
 
+
+    /* BUTTONS */
+
     .button {
       display: inline-block;
       background: #2563eb;
@@ -126,6 +132,7 @@
       background: #1e293b;
     }
 
+
     /* MAIN SECTIONS */
 
     section {
@@ -145,6 +152,7 @@
       margin-bottom: 35px;
       max-width: 700px;
     }
+
 
     /* ABOUT */
 
@@ -180,6 +188,7 @@
       color: #0f172a;
     }
 
+
     /* EXPERIENCE */
 
     .experience-card {
@@ -214,11 +223,13 @@
 
     .experience-card ul {
       margin-left: 20px;
+      margin-bottom: 18px;
     }
 
     .experience-card li {
       margin-bottom: 8px;
     }
+
 
     /* PROJECTS */
 
@@ -277,6 +288,7 @@
       text-decoration: underline;
     }
 
+
     /* TAGS */
 
     .tags {
@@ -294,6 +306,7 @@
       font-size: 13px;
       font-weight: bold;
     }
+
 
     /* SKILLS */
 
@@ -319,6 +332,7 @@
       color: #64748b;
     }
 
+
     /* CONTACT */
 
     .contact {
@@ -334,8 +348,33 @@
 
     .contact p {
       color: #cbd5e1;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .contact-info a {
+      color: #60a5fa;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: white;
+    }
+
+    .contact-divider {
+      color: #64748b;
+    }
+
 
     /* FOOTER */
 
@@ -346,6 +385,7 @@
       color: #94a3b8;
       font-size: 14px;
     }
+
 
     /* MOBILE */
 
@@ -370,6 +410,7 @@
 
     }
 
+
     @media (max-width: 750px) {
 
       .projects-grid,
@@ -392,6 +433,20 @@
 
     }
 
+
+    @media (max-width: 550px) {
+
+      .contact-info {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .contact-divider {
+        display: none;
+      }
+
+    }
+
   </style>
 
 </head>
@@ -399,150 +454,188 @@
 
 <body>
 
-  <!-- NAVIGATION -->
 
-  <nav>
+<!-- NAVIGATION -->
 
-    <div class="logo">
-      Carson Tran
+<nav>
+
+  <div class="logo">
+    Carson Tran
+  </div>
+
+  <ul>
+
+    <li>
+      <a href="#about">
+        About
+      </a>
+    </li>
+
+    <li>
+      <a href="#experience">
+        Experience
+      </a>
+    </li>
+
+    <li>
+      <a href="#projects">
+        Projects
+      </a>
+    </li>
+
+    <li>
+      <a href="#skills">
+        Skills
+      </a>
+    </li>
+
+    <li>
+      <a href="#contact">
+        Contact
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      MECHANICAL ENGINEERING
     </div>
 
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <h1>
+      Carson Tran
+    </h1>
 
-  </nav>
+    <h2>
+      Mechanical Engineering Student at Cal Poly Pomona
+    </h2>
+
+    <p>
+      Mechanical engineering student with experience in aerospace
+      quality engineering, CAD, manufacturing, dimensional inspection,
+      Arduino, and rapid prototyping. Interested in designing,
+      analyzing, manufacturing, and improving real-world mechanical systems.
+    </p>
+
+    <a class="button" href="#projects">
+      View Projects
+    </a>
+
+    <a class="button secondary" href="#experience">
+      View Experience
+    </a>
+
+    <a class="button secondary" href="#contact">
+      Contact Me
+    </a>
+
+  </div>
+
+</div>
 
 
-  <!-- HERO -->
+<!-- ABOUT -->
 
-  <div class="hero">
+<section id="about">
 
-    <div class="hero-content">
+  <h2 class="section-title">
+    About Me
+  </h2>
 
-      <div class="hero-small">
-        MECHANICAL ENGINEERING
-      </div>
+  <p class="section-description">
+    Combining engineering analysis with hands-on design,
+    manufacturing, testing, and prototyping.
+  </p>
 
-      <h1>
-        Carson Tran
-      </h1>
 
-      <h2>
-        Mechanical Engineering Student at Cal Poly Pomona
-      </h2>
+  <div class="about-grid">
+
+
+    <!-- PROFILE PHOTO -->
+
+    <div>
+
+      <img
+        src="Screenshot%202026-09-24%20235043.png"
+        alt="Carson Tran"
+        class="profile-photo"
+      >
+
+    </div>
+
+
+    <!-- ABOUT TEXT -->
+
+    <div class="about-text">
 
       <p>
-        Mechanical engineering student with experience in aerospace
-        quality engineering, CAD, manufacturing, dimensional inspection,
-        Arduino, and rapid prototyping. Interested in designing,
-        analyzing, manufacturing, and improving real-world mechanical systems.
+        I am a Mechanical Engineering student at California State
+        Polytechnic University, Pomona with an expected graduation
+        date of May 2028.
       </p>
 
-      <a class="button" href="#projects">
-        View Projects
-      </a>
+      <p>
+        My experience includes aerospace quality engineering,
+        SolidWorks CAD, dimensional inspection, manufacturing
+        processes, Arduino projects, 3D printing, and mechanical
+        analysis.
+      </p>
 
-      <a class="button secondary" href="#experience">
-        View Experience
-      </a>
+      <p>
+        I enjoy taking engineering concepts beyond the classroom
+        through hands-on projects involving CAD modeling, prototyping,
+        testing, and design iteration.
+      </p>
 
-      <a class="button secondary" href="#contact">
-        Contact Me
-      </a>
+      <p>
+        I am especially interested in aerospace, mechanical design,
+        manufacturing, and quality engineering.
+      </p>
+
+    </div>
+
+
+    <!-- EDUCATION CARD -->
+
+    <div class="about-card">
+
+      <h3>
+        Education
+      </h3>
+
+      <p>
+
+        <strong>
+          Cal Poly Pomona
+        </strong>
+
+        <br>
+
+        B.S. Mechanical Engineering
+
+        <br>
+
+        GPA: 3.87
+
+        <br>
+
+        Expected May 2028
+
+      </p>
 
     </div>
 
   </div>
 
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <h2 class="section-title">
-      About Me
-    </h2>
-
-    <p class="section-description">
-      Combining engineering analysis with hands-on design,
-      manufacturing, testing, and prototyping.
-    </p>
-
-
-    <div class="about-grid">
-
-      <!-- PROFILE PHOTO -->
-
-      <div>
-
-        <img
-          src="Screenshot%202026-09-24%20235043.png"
-          alt="Carson Tran"
-          class="profile-photo"
-        >
-
-      </div>
-
-
-      <!-- ABOUT TEXT -->
-
-      <div class="about-text">
-
-        <p>
-          I am a Mechanical Engineering student at California State
-          Polytechnic University, Pomona with an expected graduation
-          date of May 2028.
-        </p>
-
-        <p>
-          My experience includes aerospace quality engineering,
-          SolidWorks CAD, dimensional inspection, manufacturing
-          processes, Arduino projects, 3D printing, and mechanical
-          analysis.
-        </p>
-
-        <p>
-          I enjoy taking engineering concepts beyond the classroom
-          through hands-on projects involving CAD modeling, prototyping,
-          testing, and design iteration.
-        </p>
-
-        <p>
-          I am especially interested in aerospace, mechanical design,
-          manufacturing, and quality engineering.
-        </p>
-
-      </div>
-
-
-      <!-- EDUCATION CARD -->
-
-      <div class="about-card">
-
-        <h3>
-          Education
-        </h3>
-
-        <p>
-          <strong>Cal Poly Pomona</strong>
-          <br>
-          B.S. Mechanical Engineering
-          <br>
-          GPA: 3.87
-          <br>
-          Expected May 2028
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
+</section>
 
 
 <!-- EXPERIENCE -->
@@ -574,6 +667,7 @@
         </div>
 
       </div>
+
 
       <div class="experience-date">
         May 2026 – September 2026
@@ -614,295 +708,344 @@
 </section>
 
 
-  <!-- PROJECTS -->
+<!-- PROJECTS -->
 
-  <section id="projects">
+<section id="projects">
 
-    <h2 class="section-title">
-      Engineering Projects
-    </h2>
+  <h2 class="section-title">
+    Engineering Projects
+  </h2>
 
-    <p class="section-description">
-      Selected projects involving mechanical analysis, CAD,
-      experimentation, electronics, design, and rapid prototyping.
-    </p>
-
-
-    <div class="projects-grid">
+  <p class="section-description">
+    Selected projects involving mechanical analysis, CAD,
+    experimentation, electronics, design, and rapid prototyping.
+  </p>
 
 
-      <!-- BOLT CUTTER -->
+  <div class="projects-grid">
 
-      <div class="project-card">
 
-        <div class="project-top"></div>
+    <!-- BOLT CUTTER -->
 
-        <div class="project-content">
+    <div class="project-card">
 
-          <h3>
-            Bolt Cutter Static Analysis
-          </h3>
+      <div class="project-top"></div>
 
-          <div class="tags">
-            <span class="tag">Statics</span>
-            <span class="tag">SolidWorks</span>
-            <span class="tag">Free-Body Diagrams</span>
-          </div>
+      <div class="project-content">
 
-          <p>
-            Performed a mechanical analysis of a WORKPRO bolt cutter
-            to evaluate mechanical advantage and force amplification
-            using free-body diagrams, static equilibrium, and CAD modeling.
-          </p>
+        <h3>
+          Bolt Cutter Static Analysis
+        </h3>
 
-          <a
-            class="project-link"
-            href="bolt-cutter.html"
-          >
-            View Project →
-          </a>
+        <div class="tags">
+
+          <span class="tag">
+            Statics
+          </span>
+
+          <span class="tag">
+            SolidWorks
+          </span>
+
+          <span class="tag">
+            Free-Body Diagrams
+          </span>
 
         </div>
 
+        <p>
+          Performed a mechanical analysis of a WORKPRO bolt cutter
+          to evaluate mechanical advantage and force amplification
+          using free-body diagrams, static equilibrium, and CAD modeling.
+        </p>
+
+        <a
+          class="project-link"
+          href="bolt-cutter.html"
+        >
+          View Project →
+        </a>
+
       </div>
 
-<!-- STIRLING ENGINE -->
-
-<div class="project-card">
-
-  <div class="project-top"></div>
-
-  <div class="project-content">
-
-    <h3>Stirling Engine Analysis</h3>
-
-    <div class="tags">
-      <span class="tag">Thermodynamics</span>
-      <span class="tag">Experimental Design</span>
-      <span class="tag">Data Analysis</span>
     </div>
 
-    <p>
-      Dissected and analyzed a Low Temperature Differential Stirling
-      engine and designed an experiment to study the relationship
-      between temperature difference and flywheel RPM, determining
-      an approximate minimum startup temperature difference of 3.3°C.
-    </p>
 
-    <a class="project-link" href="stirling-engine.html">
-      View Project →
+    <!-- STIRLING ENGINE -->
+
+    <div class="project-card">
+
+      <div class="project-top"></div>
+
+      <div class="project-content">
+
+        <h3>
+          Stirling Engine Analysis
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Thermodynamics
+          </span>
+
+          <span class="tag">
+            Experimental Design
+          </span>
+
+          <span class="tag">
+            Data Analysis
+          </span>
+
+        </div>
+
+        <p>
+          Analyzed a Low Temperature Differential Stirling engine and
+          designed an experiment to study the relationship between
+          temperature difference and flywheel RPM, determining an
+          approximate minimum startup temperature difference of 3.3°C.
+        </p>
+
+        <a
+          class="project-link"
+          href="stirling-engine.html"
+        >
+          View Project →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- SOCCER ROBOT -->
+
+    <div class="project-card">
+
+      <div class="project-top"></div>
+
+      <div class="project-content">
+
+        <h3>
+          Soccer Robot
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Arduino
+          </span>
+
+          <span class="tag">
+            Wireless Control
+          </span>
+
+          <span class="tag">
+            3D Printing
+          </span>
+
+        </div>
+
+        <p>
+          Built and competed with an Arduino-based soccer robot
+          in a Robotics Club competition using wireless communication
+          for remote control. Designed and 3D printed a custom
+          U-shaped ball pusher for improved ball control.
+        </p>
+
+        <span class="project-link">
+          Project Page Coming Soon
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- POKER CHIP TRAY -->
+
+    <div class="project-card">
+
+      <div class="project-top"></div>
+
+      <div class="project-content">
+
+        <h3>
+          Custom Poker Chip Tray
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            CAD Design
+          </span>
+
+          <span class="tag">
+            3D Printing
+          </span>
+
+          <span class="tag">
+            Prototyping
+          </span>
+
+        </div>
+
+        <p>
+          Designed and 3D printed a custom poker chip tray to improve
+          chip organization and accessibility during home games.
+          Developed the design around real-world dimensions and
+          iterated the geometry for fit, stability, and printability.
+        </p>
+
+        <span class="project-link">
+          Project Page Coming Soon
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+  <h2 class="section-title">
+    Technical Skills
+  </h2>
+
+  <p class="section-description">
+    Engineering software, quality tools, manufacturing experience,
+    and production systems.
+  </p>
+
+
+  <div class="skills-grid">
+
+
+    <!-- ENGINEERING -->
+
+    <div class="skill-card">
+
+      <h3>
+        Engineering
+      </h3>
+
+      <p>
+        SolidWorks
+        <br>
+        MATLAB
+        <br>
+        Arduino
+        <br>
+        3D Printing
+        <br>
+        VBA / Microsoft Excel
+      </p>
+
+    </div>
+
+
+    <!-- QUALITY -->
+
+    <div class="skill-card">
+
+      <h3>
+        Quality & Manufacturing
+      </h3>
+
+      <p>
+        GD&T
+        <br>
+        Dimensional Inspection
+        <br>
+        CMM
+        <br>
+        Calipers & Micrometers
+        <br>
+        Height Gauges
+        <br>
+        Thread Gauges
+        <br>
+        Lean Six Sigma
+        <br>
+        CAPA
+      </p>
+
+    </div>
+
+
+    <!-- PRODUCTION -->
+
+    <div class="skill-card">
+
+      <h3>
+        Production Systems
+      </h3>
+
+      <p>
+        Realtrac ERP
+        <br>
+        PowerPick
+        <br>
+        VLM Inventory Management
+        <br>
+        Engineering Drawings
+        <br>
+        Production Tracking
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <h2 class="section-title">
+    Contact
+  </h2>
+
+  <p>
+    Interested in discussing engineering opportunities,
+    internships, or projects?
+  </p>
+
+
+  <div class="contact-info">
+
+    <a href="mailto:Trancarson1213@gmail.com">
+      Trancarson1213@gmail.com
+    </a>
+
+    <span class="contact-divider">
+      |
+    </span>
+
+    <a href="tel:9092670035">
+      909-267-0035
     </a>
 
   </div>
 
-</div>
-
-      <!-- SOCCER ROBOT -->
-
-      <div class="project-card">
-
-        <div class="project-top"></div>
-
-        <div class="project-content">
-
-          <h3>
-            Soccer Robot
-          </h3>
-
-          <div class="tags">
-            <span class="tag">Arduino</span>
-            <span class="tag">Wireless Control</span>
-            <span class="tag">3D Printing</span>
-          </div>
-
-          <p>
-            Built and competed with an Arduino-based soccer robot
-            in a Robotics Club competition using wireless communication
-            for remote control. Designed and 3D printed a custom
-            U-shaped ball pusher for improved ball control.
-          </p>
-
-          <span class="project-link">
-            Project Page Coming Soon
-          </span>
-
-        </div>
-
-      </div>
+</section>
 
 
-      <!-- POKER CHIP TRAY -->
+<!-- FOOTER -->
 
-      <div class="project-card">
-
-        <div class="project-top"></div>
-
-        <div class="project-content">
-
-          <h3>
-            Custom Poker Chip Tray
-          </h3>
-
-          <div class="tags">
-            <span class="tag">CAD Design</span>
-            <span class="tag">3D Printing</span>
-            <span class="tag">Prototyping</span>
-          </div>
-
-          <p>
-            Designed and 3D printed a custom poker chip tray to improve
-            chip organization and accessibility during home games.
-            Developed the design around real-world dimensions and
-            iterated the geometry for fit, stability, and printability.
-          </p>
-
-          <span class="project-link">
-            Project Page Coming Soon
-          </span>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- SKILLS -->
-
-  <section id="skills">
-
-    <h2 class="section-title">
-      Technical Skills
-    </h2>
-
-    <p class="section-description">
-      Engineering software, quality tools, manufacturing experience,
-      and production systems.
-    </p>
-
-
-    <div class="skills-grid">
-
-
-      <!-- ENGINEERING -->
-
-      <div class="skill-card">
-
-        <h3>
-          Engineering
-        </h3>
-
-        <p>
-          SolidWorks
-          <br>
-          MATLAB
-          <br>
-          Arduino
-          <br>
-          3D Printing
-          <br>
-          VBA / Microsoft Excel
-        </p>
-
-      </div>
-
-
-      <!-- QUALITY -->
-
-      <div class="skill-card">
-
-        <h3>
-          Quality & Manufacturing
-        </h3>
-
-        <p>
-          GD&T
-          <br>
-          Dimensional Inspection
-          <br>
-          CMM
-          <br>
-          Calipers & Micrometers
-          <br>
-          Height Gauges
-          <br>
-          Thread Gauges
-          <br>
-          Lean Six Sigma
-          <br>
-          CAPA
-        </p>
-
-      </div>
-
-
-      <!-- PRODUCTION -->
-
-      <div class="skill-card">
-
-        <h3>
-          Production Systems
-        </h3>
-
-        <p>
-          Realtrac ERP
-          <br>
-          PowerPick
-          <br>
-          VLM Inventory Management
-          <br>
-          Engineering Drawings
-          <br>
-          Production Tracking
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section class="contact" id="contact">
-
-    <h2 class="section-title">
-      Contact
-    </h2>
-
-    <p>
-      Interested in discussing engineering opportunities,
-      internships, or projects?
-    </p>
-
-    <a
-      class="button"
-      href="mailto:Trancarson1213@gmail.com"
-    >
-      Email Me
-    </a>
-
-    <a
-      class="button secondary"
-      href="https://github.com/Carsontrann"
-      target="_blank"
-    >
-      GitHub
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-    © 2026 Carson Tran | Mechanical Engineering Portfolio
-  </footer>
+<footer>
+  © 2026 Carson Tran | Mechanical Engineering Portfolio
+</footer>
 
 
 </body>
