@@ -1,174 +1,1036 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Bolt Cutter Project | Carson Tran</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bolt Cutter Static Analysis | Carson Tran</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #f5f5f5;
-      color: #222;
+      padding: 0;
+      scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+      line-height: 1.65;
     }
 
-    h1, h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
+    /* NAV */
+
+    nav {
+      background: #0f172a;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 20px;
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #cbd5e1;
       text-decoration: none;
-      color: #0077cc;
+      transition: 0.2s;
     }
 
-    .section {
+    nav a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      color: white;
+      padding: 85px 8%;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #60a5fa;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      color: #cbd5e1;
+      max-width: 760px;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: rgba(96, 165, 250, 0.14);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      color: #bfdbfe;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 65px 30px;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: #64748b;
+      max-width: 780px;
       margin-bottom: 30px;
     }
 
-    .box {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 10px;
+    /* RESULTS */
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    img {
+    .result-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .result-value {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .result-label {
+      color: #64748b;
+      margin-top: 5px;
+    }
+
+    /* CONTENT CARDS */
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .card h3 {
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #475569;
+    }
+
+    /* TWO COLUMN */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    /* WORKFLOW */
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .workflow-step {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .step-number {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .workflow-step h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .workflow-step p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* ASSUMPTIONS */
+
+    .assumption-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .assumption {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .assumption strong {
       display: block;
-      margin: 20px auto;
-      max-width: 100%;
-      border-radius: 8px;
+      margin-bottom: 5px;
+      color: #0f172a;
     }
 
-    .image-placeholder {
-      width: 100%;
-      height: 250px;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      margin: 15px 0;
-      border-radius: 8px;
-      font-style: italic;
+    .assumption p {
+      color: #64748b;
+    }
+
+    /* IMAGES */
+
+    .image-block {
+      margin-top: 30px;
+      background: white;
+      padding: 18px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+
+    .image-block img {
+      display: block;
+      max-width: 100%;
+      margin: auto;
+      border-radius: 7px;
     }
 
     .caption {
-      text-align: center;
-      color: gray;
+      color: #64748b;
       font-size: 14px;
-      margin-top: -10px;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .image-placeholder {
+      min-height: 280px;
+      border: 2px dashed #cbd5e1;
+      background: #f8fafc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+    }
+
+    /* EQUATION / RESULT */
+
+    .analysis-box {
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 25px;
+    }
+
+    .analysis-box h3 {
+      margin-bottom: 15px;
+    }
+
+    .analysis-box p {
+      color: #cbd5e1;
+      margin-bottom: 8px;
+    }
+
+    .equation {
+      font-size: 25px;
+      font-weight: bold;
+      color: #60a5fa;
+      margin-top: 15px;
+    }
+
+    /* BUTTON */
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* PROJECT INFO */
+
+    .project-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      border-left: 3px solid #2563eb;
+      padding-left: 15px;
+    }
+
+    .info-label {
+      color: #64748b;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      color: #0f172a;
+      font-weight: bold;
+      margin-top: 3px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 28px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .results-grid,
+      .two-column,
+      .workflow,
+      .assumption-list,
+      .project-info {
+        grid-template-columns: 1fr;
+      }
+
     }
 
   </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-  <a class="back" href="index.html">← Back to Home</a>
+<!-- NAVIGATION -->
 
-  <h1>Bolt Cutter Mechanical Analysis</h1>
-  <p><b>Mechanical Engineering Project | SolidWorks + Static Analysis</b></p>
+<nav>
 
-  <!-- ABSTRACT -->
-  <div class="section">
-    <h2>Abstract</h2>
-    <div class="box">
-      This lab analyzed the mechanics of a bolt cutter and determined how it produces a large cutting force from a small human input. Using static equilibrium, the shear force at the blade was calculated to be 16,696.7 N, approximately 67 times the input force of 250 N.
-    </div>
+  <div class="logo">
+    Carson Tran
   </div>
 
-  <!-- INTRO -->
-  <div class="section">
-    <h2>Introduction</h2>
-    <div class="box">
-      The bolt cutter demonstrates mechanical advantage by amplifying human input force through a lever system. Long handles and pivot joints allow a small force to generate a much larger cutting force at the jaws.
-    </div>
-  </div>
+  <a href="index.html">
+    ← Back to Portfolio
+  </a>
 
-  <!-- HOW IT WORKS -->
-  <div class="section">
-    <h2>How It Works</h2>
+</nav>
 
-    <div class="box">
-      A bolt cutter uses long handles, pivot joints, and cutting jaws to amplify force. When force is applied at the handles, torque is created about the pivot and transmitted through linkages to the cutting jaws.
-    </div>
 
-    <div class="image-placeholder">
-      Insert SolidWorks Assembly Image Here
+<!-- HERO -->
+
+<div class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      MECHANICAL ENGINEERING • STATIC ANALYSIS
     </div>
 
-    <div class="image-placeholder">
-      Insert Annotated Force Diagram Here
-    </div>
+    <h1>
+      Bolt Cutter Mechanical Analysis
+    </h1>
 
-  </div>
-
-  <!-- STATIC ANALYSIS -->
-  <div class="section">
-    <h2>Static Analysis</h2>
-
-    <div class="box">
-      <p><b>Objective:</b> Determine shear force at blade using 250 N input force.</p>
-      <p><b>Key Result:</b> Shear force = <b>16,696.7 N</b></p>
-      <p><b>Mechanical Advantage:</b> ~67x amplification of input force</p>
-    </div>
-
-    <div class="box">
-      Free body diagrams and equilibrium equations were used to determine force transmission through the system.
-    </div>
-
-    <div class="image-placeholder">
-      Insert Hand Calculations / Free Body Diagram Here
-    </div>
-
-  </div>
-
-  <!-- 3D MODEL -->
-  <div class="section">
-    <h2>3D Model</h2>
-
-    <div class="box">
-      SolidWorks model used for analysis and geometry extraction.
-    </div>
-
-    <img src="bolt-cutter-solidworks.png" alt="3D Model">
-
-    <div class="caption">SolidWorks Assembly Model of Bolt Cutter</div>
-
-    <p style="text-align:center;">
-      <a href="https://drive.google.com/drive/folders/1TV8mEaSxUroBahL1ydKuqSGBeMGI0YWh?usp=sharing" target="_blank">
-        Download Full Drawings (Google Drive)
-      </a>
+    <p class="hero-description">
+      Static analysis of a WORKPRO W017004A bolt cutter to determine
+      how its lever and linkage system converts human input force into
+      a significantly larger cutting force at the jaws.
     </p>
-  </div>
 
-  <!-- CONCLUSION -->
-  <div class="section">
-    <h2>Conclusion</h2>
+    <div class="tags">
 
-    <div class="box">
-      This project demonstrated how a simple mechanical system can significantly amplify human force. The bolt cutter achieved a mechanical advantage of approximately 67x, converting 250 N input force into 16,696.7 N at the cutting blade.
+      <span class="tag">Statics</span>
+      <span class="tag">SolidWorks</span>
+      <span class="tag">Free-Body Diagrams</span>
+      <span class="tag">Mechanical Advantage</span>
+      <span class="tag">Engineering Drawings</span>
+
     </div>
+
   </div>
 
 </div>
 
+
+<!-- MAIN -->
+
+<main>
+
+
+<!-- PROJECT INFORMATION -->
+
+<section>
+
+  <h2 class="section-title">
+    Project Overview
+  </h2>
+
+  <p class="section-intro">
+    This project was completed for ME 2331L: Introduction to Design
+    Laboratory at Cal Poly Pomona. The objective was to analyze a
+    real mechanical system using engineering measurements, CAD,
+    free-body diagrams, and static equilibrium.
+  </p>
+
+  <div class="project-info">
+
+    <div class="info-item">
+
+      <div class="info-label">
+        Course
+      </div>
+
+      <div class="info-value">
+        ME 2331L
+      </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <div class="info-label">
+        Project Type
+      </div>
+
+      <div class="info-value">
+        Two-Person Engineering Project
+      </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <div class="info-label">
+        Tools
+      </div>
+
+      <div class="info-value">
+        SolidWorks + Static Analysis
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- RESULTS -->
+
+<section>
+
+  <h2 class="section-title">
+    Key Results
+  </h2>
+
+  <p class="section-intro">
+    The analysis quantified the mechanical advantage produced by
+    the bolt cutter's long handles, pivot points, and cutting jaw geometry.
+  </p>
+
+  <div class="results-grid">
+
+    <div class="result-card">
+
+      <div class="result-value">
+        250 N
+      </div>
+
+      <div class="result-label">
+        Applied Handle Force
+      </div>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <div class="result-value">
+        16.7 kN
+      </div>
+
+      <div class="result-label">
+        Calculated Blade Force
+      </div>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <div class="result-value">
+        ~67×
+      </div>
+
+      <div class="result-label">
+        Force Amplification
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ENGINEERING PROBLEM -->
+
+<section>
+
+  <h2 class="section-title">
+    Engineering Problem
+  </h2>
+
+  <div class="card">
+
+    <p>
+      Bolt cutters use long handles and a multi-pivot linkage system
+      to generate mechanical advantage. A relatively small force applied
+      by the user creates torque about the pivots, which is transferred
+      through the linkage system and concentrated at the cutting jaws.
+    </p>
+
+    <br>
+
+    <p>
+      The goal of this project was to determine the shear force generated
+      at the blade when a realistic human input force was applied to
+      the handles.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+  <h2 class="section-title">
+    How the Mechanism Works
+  </h2>
+
+  <p class="section-intro">
+    The system uses multiple mechanical elements that work together
+    to transfer and amplify the user's input force.
+  </p>
+
+
+  <div class="two-column">
+
+    <div class="card">
+
+      <h3>
+        Handles & Pivots
+      </h3>
+
+      <p>
+        The long handles create a large moment about the primary pivot.
+        Pivot joints connect the handles to the linkage system while
+        allowing rotational motion and force transfer.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Linkages & Cutting Jaws
+      </h3>
+
+      <p>
+        The linkage system transfers force from the handles toward the
+        jaws. The cutting blades then concentrate the amplified force
+        over a small contact area to shear through material.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- OPTIONAL IMAGE -->
+
+  <div class="image-block">
+
+    <img
+      src="bolt-cutter-solidworks.png"
+      alt="SolidWorks model of bolt cutter"
+    >
+
+    <div class="caption">
+      SolidWorks assembly model of the analyzed bolt cutter.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ENGINEERING WORKFLOW -->
+
+<section>
+
+  <h2 class="section-title">
+    Analysis Workflow
+  </h2>
+
+  <p class="section-intro">
+    The project combined physical measurements, CAD modeling,
+    free-body diagrams, and equilibrium equations.
+  </p>
+
+
+  <div class="workflow">
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 01
+      </div>
+
+      <h3>
+        Measure
+      </h3>
+
+      <p>
+        Measured the bolt cutter geometry and created a scaled
+        representation of the mechanism.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 02
+      </div>
+
+      <h3>
+        Model
+      </h3>
+
+      <p>
+        Created SolidWorks parts, drawings, and an assembly representing
+        the physical bolt cutter.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 03
+      </div>
+
+      <h3>
+        Analyze
+      </h3>
+
+      <p>
+        Created free-body diagrams of the cutting piece and handle
+        to identify forces and moments.
+      </p>
+
+    </div>
+
+
+    <div class="workflow-step">
+
+      <div class="step-number">
+        STEP 04
+      </div>
+
+      <h3>
+        Solve
+      </h3>
+
+      <p>
+        Applied static equilibrium equations to calculate the
+        resulting cutting force.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ASSUMPTIONS -->
+
+<section>
+
+  <h2 class="section-title">
+    Analysis Assumptions
+  </h2>
+
+  <p class="section-intro">
+    Several simplifying assumptions were used so the mechanism
+    could be analyzed using standard static equilibrium methods.
+  </p>
+
+
+  <div class="assumption-list">
+
+
+    <div class="assumption">
+
+      <strong>
+        250 N Input Force
+      </strong>
+
+      <p>
+        A 250 N human-applied force was assumed at each handle
+        for the static analysis.
+      </p>
+
+    </div>
+
+
+    <div class="assumption">
+
+      <strong>
+        Rigid Components
+      </strong>
+
+      <p>
+        Handles, jaws, and linkages were treated as rigid bodies
+        with no deformation.
+      </p>
+
+    </div>
+
+
+    <div class="assumption">
+
+      <strong>
+        Frictionless Pivot Joints
+      </strong>
+
+      <p>
+        Pivot points were modeled as frictionless pin connections
+        so force could be transferred without friction losses.
+      </p>
+
+    </div>
+
+
+    <div class="assumption">
+
+      <strong>
+        Concentrated Loads
+      </strong>
+
+      <p>
+        Handle forces were represented as concentrated loads
+        applied at defined locations.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- STATIC ANALYSIS -->
+
+<section>
+
+  <h2 class="section-title">
+    Static Analysis
+  </h2>
+
+  <p class="section-intro">
+    Free-body diagrams were created for the cutting jaw and handle.
+    Moment equilibrium was then used to relate the applied handle
+    force to the force transmitted through the linkage and blade.
+  </p>
+
+
+  <!-- REPLACE WITH YOUR FBD IMAGE -->
+
+  <div class="image-placeholder">
+
+    Upload your scaled bolt cutter diagram / free-body diagram
+    and replace this box with an image.
+
+  </div>
+
+
+  <div class="analysis-box">
+
+    <h3>
+      Final Calculation
+    </h3>
+
+    <p>
+      Applied input force:
+      <strong>250 N</strong>
+    </p>
+
+    <p>
+      Calculated shear force at the blade:
+    </p>
+
+    <div class="equation">
+      F = 16,696.7 N
+    </div>
+
+    <p style="margin-top: 18px;">
+      This corresponds to approximately 67 times the applied input force.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CAD -->
+
+<section>
+
+  <h2 class="section-title">
+    SolidWorks Modeling
+  </h2>
+
+  <p class="section-intro">
+    The physical bolt cutter was modeled in SolidWorks to document
+    its geometry, visualize the complete assembly, and create
+    engineering drawings of its components.
+  </p>
+
+
+  <div class="image-block">
+
+    <img
+      src="bolt-cutter-solidworks.png"
+      alt="3D SolidWorks bolt cutter assembly"
+    >
+
+    <div class="caption">
+      Complete SolidWorks assembly of the bolt cutter.
+    </div>
+
+  </div>
+
+
+  <a
+    class="button"
+    href="https://drive.google.com/drive/folders/1TV8mEaSxUroBahL1ydKuqSGBeMGI0YWh?usp=sharing"
+    target="_blank"
+  >
+    View Engineering Drawings
+  </a>
+
+</section>
+
+
+<!-- WHAT I LEARNED -->
+
+<section>
+
+  <h2 class="section-title">
+    Engineering Takeaways
+  </h2>
+
+
+  <div class="two-column">
+
+    <div class="card">
+
+      <h3>
+        Mechanical Advantage
+      </h3>
+
+      <p>
+        The project demonstrated how lever-arm geometry and linkage
+        design can dramatically increase output force without increasing
+        the user's applied force.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Theory to Real Hardware
+      </h3>
+
+      <p>
+        Measuring an actual mechanism and converting it into free-body
+        diagrams showed how static equilibrium can be applied to
+        real mechanical systems rather than ideal textbook examples.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        CAD & Documentation
+      </h3>
+
+      <p>
+        Modeling the individual components and complete assembly
+        provided experience translating physical geometry into
+        manufacturing-style engineering drawings.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Engineering Assumptions
+      </h3>
+
+      <p>
+        The analysis reinforced the importance of clearly defining
+        assumptions such as rigid bodies, frictionless joints,
+        and concentrated loads when simplifying real systems.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONCLUSION -->
+
+<section>
+
+  <h2 class="section-title">
+    Conclusion
+  </h2>
+
+  <div class="card">
+
+    <p>
+      The analysis showed that the bolt cutter's lever and linkage
+      geometry can transform a 250 N human input force into approximately
+      16.7 kN of force at the cutting blade, producing a mechanical
+      advantage of roughly 67×.
+    </p>
+
+    <br>
+
+    <p>
+      This project combined physical measurement, CAD modeling,
+      free-body diagrams, and static equilibrium to analyze how
+      mechanical design can amplify human input force in a
+      real-world device.
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+  © 2026 Carson Tran | Mechanical Engineering Portfolio
+</footer>
+
+
 </body>
+
 </html>
-🧠 What I changed for you
-❌ Removed duplicate images
-❌ Removed accidental repetition in Static
