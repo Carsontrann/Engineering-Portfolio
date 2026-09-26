@@ -156,36 +156,98 @@
 
     /* ABOUT */
 
-    .about-grid {
+    .about-shell {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 35px;
       display: grid;
-      grid-template-columns: 220px 1fr 280px;
+      grid-template-columns: 230px 1fr;
       gap: 40px;
       align-items: center;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+    }
+
+    .about-photo-panel {
+      text-align: center;
     }
 
     .profile-photo {
-      width: 210px;
-      height: 210px;
+      width: 205px;
+      height: 205px;
       object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      border-radius: 18px;
+      border: 4px solid white;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16);
     }
 
-    .about-text p {
-      margin-bottom: 15px;
+    .about-photo-label {
+      display: inline-block;
+      margin-top: 15px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
     }
 
-    .about-card {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .about-card h3 {
-      margin-bottom: 12px;
+    .about-main h3 {
+      font-size: 26px;
       color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .about-main p {
+      color: #475569;
+      margin-bottom: 14px;
+      max-width: 700px;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+      margin-bottom: 28px;
+    }
+
+    .about-pill {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .about-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .fact-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .fact-label {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .fact-value {
+      color: #0f172a;
+      font-size: 16px;
+      font-weight: bold;
     }
 
 
@@ -387,11 +449,11 @@
     }
 
 
-    /* MOBILE */
+    /* TABLET */
 
-    @media (max-width: 900px) {
+    @media (max-width: 850px) {
 
-      .about-grid {
+      .about-shell {
         grid-template-columns: 1fr;
         text-align: center;
       }
@@ -400,22 +462,28 @@
         margin: auto;
       }
 
-      .about-text {
+      .about-main {
         text-align: left;
       }
 
-      .about-card {
-        text-align: left;
+      .about-highlights {
+        justify-content: center;
       }
 
     }
 
+
+    /* MOBILE */
 
     @media (max-width: 750px) {
 
       .projects-grid,
       .skills-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 30px;
       }
 
       .hero h1 {
@@ -429,6 +497,23 @@
       .experience-header {
         flex-direction: column;
         gap: 5px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .about-shell {
+        padding: 25px;
+      }
+
+      .about-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .about-highlights {
+        justify-content: flex-start;
       }
 
     }
@@ -556,12 +641,12 @@
   </p>
 
 
-  <div class="about-grid">
+  <div class="about-shell">
 
 
-    <!-- PROFILE PHOTO -->
+    <!-- PHOTO -->
 
-    <div>
+    <div class="about-photo-panel">
 
       <img
         src="Screenshot%202026-09-24%20235043.png"
@@ -569,12 +654,20 @@
         class="profile-photo"
       >
 
+      <div class="about-photo-label">
+        Mechanical Engineering
+      </div>
+
     </div>
 
 
-    <!-- ABOUT TEXT -->
+    <!-- MAIN ABOUT CONTENT -->
 
-    <div class="about-text">
+    <div class="about-main">
+
+      <h3>
+        Building Engineering Experience Beyond the Classroom
+      </h3>
 
       <p>
         I am a Mechanical Engineering student at California State
@@ -583,53 +676,90 @@
       </p>
 
       <p>
-        My experience includes aerospace quality engineering,
-        SolidWorks CAD, dimensional inspection, manufacturing
-        processes, Arduino projects, 3D printing, and mechanical
-        analysis.
+        My experience combines aerospace quality engineering,
+        SolidWorks CAD, dimensional inspection, manufacturing,
+        Arduino, 3D printing, and mechanical analysis.
       </p>
 
       <p>
-        I enjoy taking engineering concepts beyond the classroom
-        through hands-on projects involving CAD modeling, prototyping,
-        testing, and design iteration.
+        I enjoy taking engineering concepts from analysis to physical
+        implementation through CAD modeling, prototyping, testing,
+        manufacturing, and design iteration.
       </p>
 
-      <p>
-        I am especially interested in aerospace, mechanical design,
-        manufacturing, and quality engineering.
-      </p>
 
-    </div>
+      <!-- ENGINEERING INTERESTS -->
+
+      <div class="about-highlights">
+
+        <span class="about-pill">
+          Aerospace
+        </span>
+
+        <span class="about-pill">
+          Mechanical Design
+        </span>
+
+        <span class="about-pill">
+          Manufacturing
+        </span>
+
+        <span class="about-pill">
+          Quality Engineering
+        </span>
+
+        <span class="about-pill">
+          CAD & Prototyping
+        </span>
+
+      </div>
 
 
-    <!-- EDUCATION CARD -->
+      <!-- QUICK FACTS -->
 
-    <div class="about-card">
+      <div class="about-facts">
 
-      <h3>
-        Education
-      </h3>
 
-      <p>
+        <div class="fact-card">
 
-        <strong>
-          Cal Poly Pomona
-        </strong>
+          <div class="fact-label">
+            University
+          </div>
 
-        <br>
+          <div class="fact-value">
+            Cal Poly Pomona
+          </div>
 
-        B.S. Mechanical Engineering
+        </div>
 
-        <br>
 
-        GPA: 3.87
+        <div class="fact-card">
 
-        <br>
+          <div class="fact-label">
+            GPA
+          </div>
 
-        Expected May 2028
+          <div class="fact-value">
+            3.87
+          </div>
 
-      </p>
+        </div>
+
+
+        <div class="fact-card">
+
+          <div class="fact-label">
+            Graduation
+          </div>
+
+          <div class="fact-value">
+            May 2028
+          </div>
+
+        </div>
+
+
+      </div>
 
     </div>
 
